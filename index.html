@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio de Portfólios — Modelos prontos para começar</title>
+  <meta name="description" content="5 modelos criativos de portfólio para advogados, nutricionistas, marketing, fotógrafos e designers. Responda o questionário e descubra o seu." />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/showcase.css" />
+  <!-- Aplica o tema salvo antes da renderização (evita "piscar") -->
+  <script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
+</head>
+<body>
+  <!-- ===================== NAV ===================== -->
+  <header class="nav">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"></span>
+      Studio<strong>Portfólios</strong>
+    </a>
+    <nav class="nav-links">
+      <a href="#modelos">Modelos</a>
+      <a href="#como">Como funciona</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema claro/escuro">
+        <span class="theme-icon">🌙</span>
+      </button>
+      <a class="btn btn-sm" href="questionario.html">Montar o meu →</a>
+    </nav>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+
+    <!-- Assinatura do desenvolvedor (mock de editor de código) -->
+    <a class="dev-brand" href="https://wa.me/5511913297171?text=Ol%C3%A1%20Cadu!%20%F0%9F%91%8B%20Vi%20seu%20Studio%20de%20Portf%C3%B3lios%20e%20tenho%20uma%20d%C3%BAvida%3A" target="_blank" rel="noopener" aria-label="Fale com Cadu, o desenvolvedor">
+      <div class="dev-brand-chrome">
+        <span class="dot r"></span>
+        <span class="dot y"></span>
+        <span class="dot g"></span>
+        <span class="path">cadu.js</span>
+      </div>
+      <div class="dev-brand-code">
+        <div class="line"><span class="tk-key">const</span> <span class="tk-var">dev</span> <span class="tk-op">=</span> <span class="tk-brace">{</span></div>
+        <div class="line indent"><span class="tk-prop">nome</span><span class="tk-op">:</span> <span class="tk-str">'Cadu'</span><span class="tk-op">,</span></div>
+        <div class="line indent"><span class="tk-prop">role</span><span class="tk-op">:</span> <span class="tk-str">'Desenvolvedor'</span></div>
+        <div class="line"><span class="tk-brace">}</span><span class="tk-op">;</span><span class="cursor">|</span></div>
+      </div>
+    </a>
+
+    <p class="eyebrow">Para quem está começando agora</p>
+    <h1>Seu portfólio profissional,<br /><em>feito sob medida pra você.</em></h1>
+    <p class="lead">
+      Portfólios criativos pensados para profissões reais.
+      Responda um questionário rápido com suas preferências e eu crio a sua página personalizada.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-lg" href="questionario.html">Personalizar o meu portfólio</a>
+      <a class="btn btn-ghost btn-lg" href="#modelos">Ver exemplos de estilo</a>
+    </div>
+    <div class="hero-stats">
+      <div><strong>5</strong><span>modelos prontos</span></div>
+      <div><strong>100%</strong><span>responsivos</span></div>
+      <div><strong>2 min</strong><span>para escolher</span></div>
+    </div>
+  </section>
+
+  <!-- ===================== MODELOS ===================== -->
+  <section class="models" id="modelos">
+    <div class="section-head">
+      <p class="eyebrow">Inspiração</p>
+      <h2>Exemplos do que dá pra criar</h2>
+      <p class="section-sub">Alguns estilos para você se inspirar. No questionário, você escolhe <strong>cores, fontes, imagens e seções</strong> — e eu monto o seu, do seu jeito.</p>
+    </div>
+
+    <div class="grid">
+      <!-- Advogado -->
+      <a class="card card-law" href="templates/advogado.html">
+        <div class="card-preview">
+          <span class="chip">Direito · Jurídico</span>
+          <div class="mock mock-law">
+            <div class="mock-line w60"></div>
+            <div class="mock-line w90"></div>
+            <div class="mock-tag">Advocacia</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Sóbrio &amp; Confiável</h3>
+          <p>Para advogados, contadores e consultores. Tipografia clássica, tons de marinho e dourado que transmitem autoridade.</p>
+          <span class="card-cta">Ver exemplo →</span>
+        </div>
+      </a>
+
+      <!-- Nutricionista -->
+      <a class="card card-nutri" href="templates/nutricionista.html">
+        <div class="card-preview">
+          <span class="chip">Saúde · Bem-estar</span>
+          <div class="mock mock-nutri">
+            <div class="mock-circle"></div>
+            <div class="mock-line w70"></div>
+            <div class="mock-line w50"></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Fresco &amp; Acolhedor</h3>
+          <p>Para nutricionistas, terapeutas e personal trainers. Verdes naturais, cantos suaves e clima leve.</p>
+          <span class="card-cta">Ver exemplo →</span>
+        </div>
+      </a>
+
+      <!-- Marketing -->
+      <a class="card card-mkt" href="templates/marketing.html">
+        <div class="card-preview">
+          <span class="chip">Marketing · Social</span>
+          <div class="mock mock-mkt">
+            <div class="mock-blob"></div>
+            <div class="mock-line w80"></div>
+            <div class="mock-line w40"></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Vibrante &amp; Ousado</h3>
+          <p>Para social media, publicitários e criadores de conteúdo. Gradientes energéticos e números que impressionam.</p>
+          <span class="card-cta">Ver exemplo →</span>
+        </div>
+      </a>
+
+      <!-- Fotógrafo -->
+      <a class="card card-photo" href="templates/fotografo.html">
+        <div class="card-preview">
+          <span class="chip">Fotografia · Visual</span>
+          <div class="mock mock-photo">
+            <div class="mock-frame"></div>
+            <div class="mock-frame"></div>
+            <div class="mock-frame tall"></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Minimal &amp; Galeria</h3>
+          <p>Para fotógrafos, arquitetos e artistas. Fundo escuro, imagens em destaque e foco total no trabalho.</p>
+          <span class="card-cta">Ver exemplo →</span>
+        </div>
+      </a>
+
+      <!-- Designer -->
+      <a class="card card-design" href="templates/designer.html">
+        <div class="card-preview">
+          <span class="chip">Design · Criativo</span>
+          <div class="mock mock-design">
+            <div class="mock-shape sq"></div>
+            <div class="mock-shape ci"></div>
+            <div class="mock-line w70"></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Criativo &amp; Bold</h3>
+          <p>Para designers, ilustradores e arquitetos de interiores. Tipografia gigante, cores fortes e muita personalidade.</p>
+          <span class="card-cta">Ver exemplo →</span>
+        </div>
+      </a>
+
+      <!-- Card questionário -->
+      <a class="card card-quiz" href="questionario.html">
+        <div class="card-quiz-inner">
+          <div class="quiz-icon">✦</div>
+          <h3>Quer o seu personalizado?</h3>
+          <p>Responda o questionário com suas preferências de cores, fontes e estilo. Eu crio um portfólio único pra você.</p>
+          <span class="btn btn-light">Começar questionário →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== COMO FUNCIONA ===================== -->
+  <section class="how" id="como">
+    <div class="section-head">
+      <p class="eyebrow">Simples assim</p>
+      <h2>Como funciona</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">1</span>
+        <h3>Responda o questionário</h3>
+        <p>Conte sua profissão, estilo, cores, fontes e o que quer mostrar.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <h3>Envie suas preferências</h3>
+        <p>No final, é só enviar o resumo por WhatsApp ou e-mail num clique.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <h3>Eu crio o seu portfólio</h3>
+        <p>Monto uma página única, do seu jeito, com base nas suas respostas.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">4</span>
+        <h3>Publico e entrego</h3>
+        <p>Eu coloco o portfólio no ar e te envio o link pronto para compartilhar.</p>
+      </div>
+    </div>
+    <div class="how-cta">
+      <a class="btn btn-lg" href="questionario.html">Quero montar o meu portfólio</a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      Studio<strong>Portfólios</strong>
+    </div>
+    <p>Modelos de portfólio para profissionais que estão começando. Feito com cuidado em UX/UI.</p>
+
+    <a class="wpp-help" href="https://wa.me/5511913297171?text=Ol%C3%A1%20Cadu!%20%F0%9F%91%8B%20Vi%20seu%20Studio%20de%20Portf%C3%B3lios%20e%20tenho%20uma%20d%C3%BAvida%3A" target="_blank" rel="noopener">
+      <span class="wpp-ic" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.966-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </span>
+      <span class="wpp-txt">Possui dúvida? <strong>Fale comigo pelo WhatsApp</strong></span>
+    </a>
+
+    <div class="signature" title="Feito por Cadu">
+      <span class="sig-mark">&lt;/&gt;</span>
+      <div class="sig-text">
+        <strong>Cadu</strong>
+        <span>Desenvolvedor</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== TEMA (claro / escuro) ===================== -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('themeToggle');
+      var icon = btn.querySelector('.theme-icon');
+      function sync() {
+        var dark = root.getAttribute('data-theme') === 'dark';
+        icon.textContent = dark ? '☀️' : '🌙';
+        btn.setAttribute('title', dark ? 'Mudar para o modo claro' : 'Mudar para o modo escuro');
+      }
+      sync();
+      btn.addEventListener('click', function () {
+        var dark = root.getAttribute('data-theme') === 'dark';
+        if (dark) {
+          root.removeAttribute('data-theme');
+          try { localStorage.setItem('theme', 'light'); } catch (e) {}
+        } else {
+          root.setAttribute('data-theme', 'dark');
+          try { localStorage.setItem('theme', 'dark'); } catch (e) {}
+        }
+        sync();
+      });
+    })();
+  </script>
+</body>
+</html>

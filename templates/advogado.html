@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfólio — Advogado</title>
+<meta name="description" content="Modelo de portfólio profissional para advogados, contadores e consultores — tipografia clássica e tons de marinho e dourado que transmitem autoridade." />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/css/base-cta.css" />
+
+<!-- ============================================================
+     ✏️  EDITE AQUI  — Modelo: ADVOGADO / Jurídico
+     Preencha com os dados do questionário. A página se monta sozinha.
+     ============================================================ -->
+<script>
+const CONFIG = {
+  // --- Identidade ---
+  nome:       "Dra. Helena Vasconcelos",
+  profissao:  "Advogada — OAB/SP 123.456",
+  tagline:    "Direito de Família e Sucessões com atendimento humano e estratégico.",
+  iniciais:   "HV",                       // aparecem no topo (logo)
+
+  // --- Cores (troque os códigos #) ---
+  corFundo:      "#0f1c30",               // marinho profundo
+  corDestaque:   "#c9a24b",               // dourado
+  corClaro:      "#f7f4ed",               // bege claro (seção sobre)
+
+  // --- Sobre ---
+  sobre: "Atuo há mais de 8 anos defendendo famílias em momentos delicados. " +
+         "Acredito em um Direito acessível, transparente e próximo, traduzindo " +
+         "o juridiquês para que você entenda cada passo do seu processo.",
+  foto: "",   // cole uma URL de foto (https://...) ou deixe "" para usar as iniciais
+
+  // --- Áreas de atuação (adicione/remova livremente) ---
+  areas: [
+    { titulo: "Direito de Família", desc: "Divórcios, guarda, pensão e acordos consensuais." },
+    { titulo: "Sucessões e Inventários", desc: "Planejamento sucessório e partilha de bens." },
+    { titulo: "Mediação de Conflitos", desc: "Soluções negociadas, evitando longos processos." },
+    { titulo: "Consultoria Preventiva", desc: "Pareceres e contratos para evitar problemas futuros." }
+  ],
+
+  // --- Números de credibilidade ---
+  numeros: [
+    { valor: "+200", label: "Casos conduzidos" },
+    { valor: "8 anos", label: "De experiência" },
+    { valor: "98%", label: "Clientes satisfeitos" }
+  ],
+
+  // --- Depoimento ---
+  depoimento: "A Dra. Helena conduziu meu divórcio com sensibilidade e firmeza. Me senti amparada do início ao fim.",
+  depoimentoAutor: "Mariana R., cliente",
+
+  // --- Contato ---
+  email:     "contato@helenavasconcelos.adv.br",
+  telefone:  "(11) 99999-0000",
+  cidade:    "São Paulo · SP",
+  linkedin:  "https://linkedin.com/in/seu-perfil",
+  instagram: "https://instagram.com/seu-perfil"
+};
+</script>
+<!-- ====================  FIM DA ÁREA DE EDIÇÃO  ==================== -->
+
+<style>
+:root {
+  --bg: #0f1c30; --gold: #c9a24b; --light: #f7f4ed;
+  --txt: #eef1f6; --dim: #aab4c4;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Inter", system-ui, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--txt); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+a { color: inherit; text-decoration: none; }
+h1,h2,h3 { font-family: var(--serif); font-weight: 600; letter-spacing: 0.01em; line-height: 1.15; }
+
+/* Nav */
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 22px clamp(20px,5vw,48px); position: sticky; top: 0; background: rgba(15,28,48,0.85); backdrop-filter: blur(12px); z-index: 30; border-bottom: 1px solid rgba(201,162,75,0.18); }
+.logo { display: flex; align-items: center; gap: 12px; font-family: var(--serif); font-size: 1.25rem; }
+.logo .mark { width: 42px; height: 42px; border: 1px solid var(--gold); color: var(--gold); border-radius: 50%; display: grid; place-items: center; font-weight: 600; letter-spacing: 0.04em; }
+.nav-links { display: flex; gap: 30px; font-size: 0.92rem; }
+.nav-links a { color: var(--dim); transition: color .2s; }
+.nav-links a:hover { color: var(--gold); }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 4px; background: var(--gold); color: var(--bg); font-weight: 600; font-size: 0.92rem; border: 1px solid var(--gold); transition: background .2s, color .2s; }
+.btn:hover { background: transparent; color: var(--gold); }
+.btn-outline { background: transparent; color: var(--gold); }
+.btn-outline:hover { background: var(--gold); color: var(--bg); }
+
+/* Hero */
+.hero { padding: clamp(70px,11vw,130px) 0 clamp(60px,9vw,100px); display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 56px; align-items: center; }
+.hero .eyebrow { color: var(--gold); letter-spacing: 0.22em; text-transform: uppercase; font-size: 0.78rem; font-weight: 600; margin-bottom: 22px; }
+.hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); margin-bottom: 22px; }
+.hero p.tag { font-size: 1.2rem; color: var(--dim); max-width: 460px; margin-bottom: 34px; font-family: var(--serif); font-style: italic; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.portrait { aspect-ratio: 3/4; border-radius: 6px; border: 1px solid rgba(201,162,75,0.4); background-size: cover; background-position: center; display: grid; place-items: center; position: relative; overflow: hidden; }
+.portrait::after { content: ""; position: absolute; inset: 10px; border: 1px solid rgba(201,162,75,0.3); border-radius: 4px; pointer-events: none; }
+.portrait .ph { font-family: var(--serif); font-size: 4rem; color: var(--gold); }
+
+/* Números */
+.stats { display: flex; gap: 50px; flex-wrap: wrap; padding: 40px 0; border-top: 1px solid rgba(201,162,75,0.2); border-bottom: 1px solid rgba(201,162,75,0.2); }
+.stats div strong { font-family: var(--serif); font-size: 2.6rem; color: var(--gold); display: block; line-height: 1; }
+.stats div span { color: var(--dim); font-size: 0.9rem; }
+
+/* Sobre */
+.sobre { background: var(--light); color: #2a2c30; padding: clamp(70px,10vw,110px) 0; }
+.sobre .wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
+.sobre h2 { font-size: clamp(2rem,4vw,3rem); color: var(--bg); margin-bottom: 20px; }
+.sobre p { font-size: 1.1rem; color: #45484e; }
+.sobre .sidebar { font-family: var(--serif); font-size: 1.5rem; color: var(--bg); line-height: 1.4; border-left: 2px solid var(--gold); padding-left: 24px; }
+
+/* Áreas */
+.areas { padding: clamp(70px,10vw,110px) 0; }
+.section-title { text-align: center; margin-bottom: 56px; }
+.section-title .eyebrow { color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.78rem; font-weight: 600; }
+.section-title h2 { font-size: clamp(2rem,4vw,3rem); margin-top: 10px; }
+.areas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1px; background: rgba(201,162,75,0.2); border: 1px solid rgba(201,162,75,0.2); }
+.area { background: var(--bg); padding: 38px 32px; transition: background .25s; }
+.area:hover { background: #13233d; }
+.area .num { font-family: var(--serif); color: var(--gold); font-size: 1.1rem; margin-bottom: 14px; }
+.area h3 { font-size: 1.45rem; margin-bottom: 10px; }
+.area p { color: var(--dim); font-size: 0.96rem; }
+
+/* Depoimento */
+.depo { background: #0b1626; padding: clamp(70px,10vw,110px) 0; text-align: center; }
+.depo .quote { font-family: var(--serif); font-size: clamp(1.6rem,3.4vw,2.4rem); font-style: italic; max-width: 760px; margin: 0 auto 24px; line-height: 1.4; }
+.depo .quote::before { content: "“"; color: var(--gold); font-size: 1.4em; vertical-align: -0.35em; }
+.depo .autor { color: var(--gold); letter-spacing: 0.08em; font-size: 0.92rem; }
+
+/* Contato */
+.contato { padding: clamp(70px,10vw,110px) 0; }
+.contato .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.contato h2 { font-size: clamp(2rem,4vw,3rem); margin-bottom: 18px; }
+.contato p { color: var(--dim); margin-bottom: 28px; }
+.contact-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.contact-list li { display: flex; gap: 14px; align-items: center; }
+.contact-list .ic { width: 40px; height: 40px; border: 1px solid rgba(201,162,75,0.4); border-radius: 50%; display: grid; place-items: center; color: var(--gold); flex-shrink: 0; }
+.contact-list a, .contact-list span { color: var(--txt); }
+.contact-list small { color: var(--dim); display: block; font-size: 0.78rem; }
+
+/* Footer */
+footer { border-top: 1px solid rgba(201,162,75,0.2); padding: 40px 0; text-align: center; color: var(--dim); font-size: 0.88rem; }
+footer .logo { justify-content: center; margin-bottom: 14px; color: var(--txt); }
+footer .socials { display: flex; gap: 18px; justify-content: center; margin-top: 12px; }
+footer .socials a:hover { color: var(--gold); }
+
+@media (max-width: 820px) {
+  .hero, .sobre .wrap, .contato .wrap { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .portrait { max-width: 320px; }
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#"><span class="mark" id="logo-mark"></span><span id="logo-nome"></span></a>
+  <nav class="nav-links">
+    <a href="#sobre">Sobre</a><a href="#areas">Atuação</a><a href="#contato">Contato</a>
+  </nav>
+  <a class="btn" href="#contato">Agendar consulta</a>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <p class="eyebrow" id="hero-prof"></p>
+      <h1 id="hero-nome"></h1>
+      <p class="tag" id="hero-tag"></p>
+      <div class="hero-actions">
+        <a class="btn" href="#contato">Falar comigo</a>
+        <a class="btn btn-outline" href="#areas">Áreas de atuação</a>
+      </div>
+    </div>
+    <div class="portrait" id="portrait"><span class="ph" id="portrait-ini"></span></div>
+  </section>
+
+  <section class="stats" id="stats"></section>
+</main>
+
+<section class="sobre" id="sobre">
+  <div class="wrap">
+    <p class="sidebar" id="sobre-side"></p>
+    <div>
+      <h2>Sobre mim</h2>
+      <p id="sobre-txt"></p>
+    </div>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="wrap">
+    <div class="section-title"><span class="eyebrow">Especialidades</span><h2>Áreas de atuação</h2></div>
+    <div class="areas-grid" id="areas-grid"></div>
+  </div>
+</section>
+
+<section class="depo">
+  <div class="wrap">
+    <p class="quote" id="depo-txt"></p>
+    <p class="autor" id="depo-autor"></p>
+  </div>
+</section>
+
+<section class="contato" id="contato">
+  <div class="wrap">
+    <div>
+      <h2>Vamos conversar</h2>
+      <p>Entre em contato para agendar uma conversa inicial e entender como posso ajudar no seu caso.</p>
+      <a class="btn" id="cta-email" href="#">Enviar e-mail</a>
+    </div>
+    <ul class="contact-list" id="contact-list"></ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#"><span class="mark" id="foot-mark"></span><span id="foot-nome"></span></a>
+    <p id="foot-cidade"></p>
+    <div class="socials" id="socials"></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const c = CONFIG, $ = (id) => document.getElementById(id);
+  document.documentElement.style.setProperty('--bg', c.corFundo);
+  document.documentElement.style.setProperty('--gold', c.corDestaque);
+  document.documentElement.style.setProperty('--light', c.corClaro);
+  document.title = "Portfólio — " + c.nome;
+
+  $('logo-mark').textContent = c.iniciais; $('foot-mark').textContent = c.iniciais;
+  $('logo-nome').textContent = c.nome; $('foot-nome').textContent = c.nome;
+  $('hero-prof').textContent = c.profissao;
+  $('hero-nome').textContent = c.nome;
+  $('hero-tag').textContent = c.tagline;
+  $('portrait-ini').textContent = c.iniciais;
+  if (c.foto) { $('portrait').style.backgroundImage = `url('${c.foto}')`; $('portrait-ini').style.display = 'none'; }
+
+  $('stats').innerHTML = c.numeros.map(n => `<div><strong>${n.valor}</strong><span>${n.label}</span></div>`).join('');
+  $('sobre-side').textContent = c.tagline;
+  $('sobre-txt').textContent = c.sobre;
+  $('areas-grid').innerHTML = c.areas.map((a, i) =>
+    `<div class="area"><div class="num">0${i + 1}</div><h3>${a.titulo}</h3><p>${a.desc}</p></div>`).join('');
+  $('depo-txt').textContent = c.depoimento;
+  $('depo-autor').textContent = c.depoimentoAutor;
+  $('cta-email').href = "mailto:" + c.email;
+  $('foot-cidade').textContent = c.cidade;
+
+  $('contact-list').innerHTML = `
+    <li><span class="ic">✉</span><div><small>E-mail</small><a href="mailto:${c.email}">${c.email}</a></div></li>
+    <li><span class="ic">☎</span><div><small>Telefone / WhatsApp</small><span>${c.telefone}</span></div></li>
+    <li><span class="ic">⚲</span><div><small>Localização</small><span>${c.cidade}</span></div></li>`;
+  const socials = [];
+  if (c.linkedin) socials.push(`<a href="${c.linkedin}" target="_blank">LinkedIn</a>`);
+  if (c.instagram) socials.push(`<a href="${c.instagram}" target="_blank">Instagram</a>`);
+  $('socials').innerHTML = socials.join('');
+})();
+</script>
+
+<!-- CTA "Usar este modelo como base" -->
+<a class="use-template-cta" href="../questionario.html?base=advogado">
+  <span class="ic">✦</span>
+  <span class="txt-full">Gostou? <strong>Use este modelo como base →</strong></span>
+  <span class="txt-short"><strong>Usar este modelo →</strong></span>
+</a>
+</body>
+</html>

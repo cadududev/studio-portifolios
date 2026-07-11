@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vamos criar o seu portfólio</title>
+<meta name="description" content="Descubra o seu portfólio ideal em poucos minutos. Responda um questionário rápido e receba um modelo criativo, feito sob medida pra sua profissão." />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;600&family=Nunito:wght@600;800&family=Space+Grotesk:wght@500;700&family=Playfair+Display:wght@500;700&family=Caveat:wght@500;700&family=Abril+Fatface&family=JetBrains+Mono:wght@500;700&family=Italiana&family=Bebas+Neue&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+<!-- Aplica o tema salvo antes da renderização (evita "piscar") -->
+<script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
+
+<!-- ============================================================
+     ⚙️  CONFIGURAÇÃO DO DONO DO SITE  (o cliente NUNCA vê isto)
+     Preencha uma vez para receber os briefings dos clientes.
+     ============================================================ -->
+<script>
+const DESTINO = {
+  // Seu WhatsApp com DDI, só números. Ex.: "5511999990000".
+  // Deixe "" para esconder o botão de WhatsApp.
+  whatsapp: "5511913297171",
+  // Seu e-mail para receber os briefings.
+  email: "carlos.devads@gmail.com"
+};
+</script>
+<!-- ====================  FIM DA CONFIGURAÇÃO  ==================== -->
+
+<style>
+:root {
+  /* Acento quente compartilhado */
+  --accent: #c2562f; --accent-2: #e9a04b;
+  --accent-soft: rgba(194,86,47,0.14); --btn-txt: #2a1710;
+  --r: 16px; --sans: "Sora", system-ui, sans-serif; --serif: "Fraunces", serif;
+
+  /* CLARO (padrão) */
+  --bg: #faf7f2; --surface: #ffffff; --surface-2: #f3efe7;
+  --line: rgba(28,24,20,0.12); --txt: #211f22; --dim: #6a6862;
+  --ok: #1f9d55; --hover: rgba(28,24,20,0.05);
+  --top-bg: rgba(250,247,242,0.85); --nav-bg: rgba(250,247,242,0.92);
+}
+[data-theme="dark"] {
+  --bg: #0c0d12; --surface: #1a1c26; --surface-2: #20222e;
+  --line: rgba(255,255,255,0.1); --txt: #f2f3f8; --dim: #a7abbd;
+  --ok: #46e072; --hover: rgba(255,255,255,0.05);
+  --top-bg: rgba(12,13,18,0.85); --nav-bg: rgba(12,13,18,0.9);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--sans); background: var(--bg); color: var(--txt); line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; transition: background .3s ease, color .3s ease; }
+a { color: inherit; }
+em { font-family: var(--serif); font-style: italic; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 26px; border-radius: 100px; font-weight: 600; font-size: 0.95rem; font-family: inherit; cursor: pointer; border: none; background: linear-gradient(120deg, var(--accent), var(--accent-2)); color: var(--btn-txt); transition: transform .2s, box-shadow .2s, opacity .2s; text-decoration: none; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(194,86,47,.32); }
+.btn:disabled { opacity: .4; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-ghost { background: transparent; color: var(--txt); border: 1px solid var(--line); }
+.btn-ghost:hover { background: var(--hover); box-shadow: none; }
+.btn-wpp { background: #25d366; color: #06231a; }
+.btn-mail { background: var(--surface); color: var(--txt); border: 1px solid var(--line); }
+
+/* Toggle de tema */
+.top-right { display: flex; align-items: center; gap: 14px; }
+.theme-toggle { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: transparent; border: 1px solid var(--line); color: var(--txt); cursor: pointer; font-size: 1rem; line-height: 1; transition: background .2s, transform .2s; }
+.theme-toggle:hover { background: var(--hover); transform: translateY(-1px); }
+
+/* Topbar + progresso */
+.top { position: sticky; top: 0; z-index: 10; background: var(--top-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.top-inner { max-width: 780px; margin: 0 auto; padding: 16px clamp(18px,5vw,32px); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 500; text-decoration: none; }
+.brand .mark { width: 20px; height: 20px; border-radius: 6px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+.step-count { font-size: 0.85rem; color: var(--dim); white-space: nowrap; }
+.bar { height: 4px; background: var(--surface); }
+.bar-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width .4s ease; }
+
+/* Layout */
+.stage { max-width: 780px; margin: 0 auto; padding: clamp(30px,6vw,56px) clamp(18px,5vw,32px) 130px; }
+.step { display: none; animation: fade .4s ease; }
+.step.active { display: block; }
+@keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.q-kicker { color: var(--accent); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 12px; }
+.q-title { font-size: clamp(1.6rem,4vw,2.4rem); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 10px; }
+.q-sub { color: var(--dim); margin-bottom: 30px; }
+.q-sub small { color: var(--accent); }
+
+/* Opções (cards) */
+.options { display: grid; gap: 14px; }
+.options.cols-2 { grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); }
+.opt { display: flex; align-items: center; gap: 16px; text-align: left; padding: 20px; background: var(--surface); border: 2px solid transparent; border-radius: var(--r); cursor: pointer; transition: border-color .2s, background .2s, transform .15s; font-family: inherit; color: inherit; width: 100%; }
+.opt:hover { transform: translateY(-2px); background: var(--surface-2); }
+.opt.sel { border-color: var(--accent); background: var(--surface-2); }
+.opt .emoji { font-size: 1.8rem; flex-shrink: 0; width: 48px; height: 48px; display: grid; place-items: center; background: var(--accent-soft); border-radius: 12px; }
+.opt .txt h3 { font-size: 1.08rem; margin-bottom: 2px; }
+.opt .txt p { font-size: 0.88rem; color: var(--dim); }
+.opt .check { margin-left: auto; width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line); flex-shrink: 0; display: grid; place-items: center; transition: .2s; }
+.opt.sel .check { border-color: var(--accent); background: var(--accent); color: #fff; font-size: 0.8rem; }
+.opt.sel .check::after { content: "✓"; }
+
+/* Paletas */
+.palette-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 14px; }
+.palette { padding: 16px; background: var(--surface); border: 2px solid transparent; border-radius: var(--r); cursor: pointer; transition: .2s; }
+.palette:hover { transform: translateY(-2px); }
+.palette.sel { border-color: var(--accent); }
+.palette .bars { display: flex; height: 46px; border-radius: 10px; overflow: hidden; margin-bottom: 10px; }
+.palette .bars span { flex: 1; }
+.palette .pname { font-size: 0.88rem; font-weight: 500; }
+.custom-colors { margin-top: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; }
+.custom-colors h4 { font-size: 0.98rem; margin-bottom: 4px; }
+.custom-colors p { font-size: 0.85rem; color: var(--dim); margin-bottom: 16px; }
+.color-pickers { display: flex; gap: 20px; flex-wrap: wrap; }
+.color-pick { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--dim); }
+.color-pick input[type=color] { width: 56px; height: 56px; border: none; border-radius: 14px; background: none; cursor: pointer; padding: 0; }
+.color-pick input[type=color]::-webkit-color-swatch-wrapper { padding: 0; }
+.color-pick input[type=color]::-webkit-color-swatch { border: 2px solid var(--line); border-radius: 14px; }
+
+/* Fontes */
+.font-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 14px; }
+.font-opt { padding: 22px; background: var(--surface); border: 2px solid transparent; border-radius: var(--r); cursor: pointer; transition: .2s; text-align: left; }
+.font-opt:hover { transform: translateY(-2px); }
+.font-opt.sel { border-color: var(--accent); background: var(--surface-2); }
+.font-opt .aa { font-size: 2.6rem; line-height: 1; margin-bottom: 6px; }
+.font-opt .sample { font-size: 1.05rem; }
+.font-opt .label { font-size: 0.82rem; color: var(--dim); margin-top: 12px; }
+
+/* Inputs */
+.field { margin-bottom: 20px; }
+.field label { display: block; font-size: 0.9rem; font-weight: 500; margin-bottom: 8px; }
+.field label span { color: var(--dim); font-weight: 400; }
+.field input, .field textarea { width: 100%; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; color: var(--txt); font-family: inherit; font-size: 0.98rem; transition: border-color .2s; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+.field textarea { resize: vertical; min-height: 90px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* Campo condicional (aparece só quando "Outra área" é selecionada) */
+.field.conditional { display: none; margin-top: 20px; animation: fade .3s ease; }
+.field.conditional.on { display: block; }
+
+/* Redes sociais extras (dinâmico) */
+.extra-social-row { display: grid; grid-template-columns: 1fr 1.6fr auto; gap: 12px; align-items: end; margin-bottom: 14px; animation: fade .3s ease; }
+.extra-social-row .field { margin-bottom: 0; }
+.extra-social-row .remove-btn { width: 46px; height: 50px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); color: var(--dim); font-size: 1.2rem; cursor: pointer; transition: color .2s, border-color .2s, background .2s; }
+.extra-social-row .remove-btn:hover { color: #d9534f; border-color: #d9534f; background: rgba(217,83,79,0.08); }
+.add-social-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; background: transparent; border: 1px dashed var(--line); border-radius: 12px; color: var(--dim); font-family: inherit; font-size: 0.92rem; font-weight: 500; cursor: pointer; transition: color .2s, border-color .2s, background .2s; }
+.add-social-btn:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.add-social-btn .plus { font-size: 1.1rem; line-height: 1; }
+@media (max-width: 520px) { .extra-social-row { grid-template-columns: 1fr auto; } .extra-social-row .field:first-child { grid-column: 1 / -1; } }
+
+/* Navegação fixa */
+.navbar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--nav-bg); backdrop-filter: blur(12px); border-top: 1px solid var(--line); }
+.navbar-inner { max-width: 780px; margin: 0 auto; padding: 16px clamp(18px,5vw,32px); display: flex; justify-content: space-between; gap: 12px; }
+
+/* Banner "modelo escolhido" */
+.model-banner { display: none; align-items: center; gap: 14px; padding: 16px 20px; background: linear-gradient(120deg, rgba(194,86,47,0.10), rgba(233,160,75,0.14)); border: 1px solid rgba(194,86,47,0.25); border-radius: 14px; margin-bottom: 28px; font-size: 0.92rem; }
+.model-banner.on { display: flex; }
+.model-banner .mb-ic { width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--btn-txt); display: grid; place-items: center; font-size: 1.1rem; flex-shrink: 0; }
+.model-banner .mb-txt { flex: 1; }
+.model-banner .mb-txt strong { color: var(--accent); }
+.model-banner .mb-change { color: var(--dim); text-decoration: underline; font-size: 0.85rem; }
+.model-banner .mb-change:hover { color: var(--txt); }
+
+/* Resultado */
+.result { text-align: center; }
+.result .badge-ok { display: inline-flex; align-items: center; gap: 8px; background: rgba(70,224,114,.12); color: var(--ok); padding: 8px 18px; border-radius: 100px; font-weight: 600; font-size: 0.88rem; margin-bottom: 22px; }
+.result h2 { font-size: clamp(2rem,5vw,3rem); letter-spacing: -0.02em; margin-bottom: 10px; }
+.result h2 em { color: var(--accent); }
+.result > p.intro { color: var(--dim); max-width: 540px; margin: 0 auto 32px; }
+.send-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+.send-actions .btn { padding: 15px 28px; }
+.copy-link { background: none; border: none; color: var(--dim); cursor: pointer; font-family: inherit; font-size: 0.9rem; text-decoration: underline; }
+
+/* Cartão de resumo (briefing legível) */
+.brief { text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: clamp(22px,4vw,34px); margin: 30px 0; }
+.brief h3 { font-size: 1.15rem; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+.brief-modelo { background: linear-gradient(120deg, rgba(194,86,47,0.1), rgba(233,160,75,0.14)); border: 1px solid rgba(194,86,47,0.25); border-radius: 12px; padding: 12px 16px; font-size: 0.92rem; margin-bottom: 22px; color: var(--txt); }
+.brief-modelo strong { color: var(--accent); }
+.brief-section { margin-top: 26px; }
+.brief-section:first-of-type { margin-top: 0; }
+.brief-section h4 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; padding-bottom: 12px; border-bottom: 2px solid var(--accent-soft); }
+.brief-row { display: flex; gap: 14px; padding: 13px 0; border-top: 1px solid var(--line); }
+.brief-section .brief-row:first-of-type { border-top: none; }
+.brief-row:first-of-type { border-top: none; }
+.brief-row .k { flex: 0 0 150px; color: var(--dim); font-size: 0.9rem; }
+.brief-row .v { flex: 1; font-size: 0.96rem; word-break: break-word; }
+.brief-row .v .dots { display: inline-flex; gap: 6px; vertical-align: middle; }
+.brief-row .v .dot { width: 18px; height: 18px; border-radius: 5px; border: 1px solid var(--line); }
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag-list span { background: var(--accent-soft); color: var(--accent); padding: 4px 12px; border-radius: 100px; font-size: 0.85rem; }
+.restart { text-align: center; margin-top: 24px; }
+.restart button { background: none; border: none; color: var(--dim); cursor: pointer; font-family: inherit; font-size: 0.9rem; text-decoration: underline; }
+
+@media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } .brief-row { flex-direction: column; gap: 4px; } .brief-row .k { flex-basis: auto; } }
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="top-inner">
+    <a class="brand" href="index.html"><span class="mark"></span> Studio<strong>Portfólios</strong></a>
+    <div class="top-right">
+      <span class="step-count" id="step-count"></span>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema claro/escuro"><span class="theme-icon">🌙</span></button>
+    </div>
+  </div>
+  <div class="bar"><div class="bar-fill" id="bar"></div></div>
+</div>
+
+<div class="stage">
+
+  <!-- Banner: modelo escolhido como base (aparece só com ?base=X) -->
+  <div class="model-banner" id="model-banner">
+    <span class="mb-ic">✦</span>
+    <div class="mb-txt">Você escolheu o <strong id="mb-name">modelo</strong> como base. Vamos direto ao seu conteúdo — <a class="mb-change" href="index.html#modelos">trocar modelo</a></div>
+  </div>
+
+  <!-- STEP 1 — Área -->
+  <section class="step active" data-step="1">
+    <p class="q-kicker">Sobre o seu trabalho</p>
+    <h2 class="q-title">Qual é a sua área de atuação?</h2>
+    <p class="q-sub">É o ponto de partida pra entender o que o seu portfólio precisa mostrar.</p>
+    <div class="options" data-key="area" data-single>
+      <button class="opt" data-val="Jurídico & Consultoria"><span class="emoji">⚖️</span><div class="txt"><h3>Jurídico & Consultoria</h3><p>Advogado, contador, consultor, corretor</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Saúde & Bem-estar"><span class="emoji">🥗</span><div class="txt"><h3>Saúde & Bem-estar</h3><p>Nutricionista, terapeuta, personal, psicólogo</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Marketing & Social Media"><span class="emoji">🚀</span><div class="txt"><h3>Marketing & Social Media</h3><p>Social media, publicitário, gestor de tráfego</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Fotografia & Visual"><span class="emoji">📷</span><div class="txt"><h3>Fotografia & Visual</h3><p>Fotógrafo, videomaker, artista visual</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Design & Criativo"><span class="emoji">🎨</span><div class="txt"><h3>Design & Criativo</h3><p>Designer, ilustrador, arquiteto, maquiador</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Outra área"><span class="emoji">✨</span><div class="txt"><h3>Outra área</h3><p>Me conte qual é logo abaixo</p></div><span class="check"></span></button>
+    </div>
+    <div class="field conditional" id="area-outra-box">
+      <label>Qual é a sua área? <span>*</span></label>
+      <input id="f-area-outra" type="text" placeholder="Ex.: Coach, professor de música, arquiteto de interiores..." />
+    </div>
+  </section>
+
+  <!-- STEP 2 — Identidade -->
+  <section class="step" data-step="2">
+    <p class="q-kicker">Sua identidade</p>
+    <h2 class="q-title">Como você quer se apresentar?</h2>
+    <p class="q-sub">Preencha o que já souber. O que faltar a gente acerta depois juntos.</p>
+    <div class="field"><label>Seu nome ou nome da marca <span>*</span></label><input id="f-nome" type="text" placeholder="Ex.: Camila Ferreira" /></div>
+    <div class="field"><label>O que você faz <span>(título profissional)</span></label><input id="f-prof" type="text" placeholder="Ex.: Nutricionista funcional" /></div>
+    <div class="field"><label>Uma frase que resume você <span>(opcional)</span></label><input id="f-tag" type="text" placeholder="Ex.: Comida de verdade, sem dietas malucas." /></div>
+    <div class="field"><label>Conte um pouco sobre você <span>(opcional)</span></label><textarea id="f-sobre" placeholder="Sua história, sua experiência, o que te diferencia..."></textarea></div>
+  </section>
+
+  <!-- STEP 3 — Estilo -->
+  <section class="step" data-step="3">
+    <p class="q-kicker">A vibe</p>
+    <h2 class="q-title">Qual clima combina com você?</h2>
+    <p class="q-sub">Pense em como você quer que as pessoas se sintam ao visitar sua página.</p>
+    <div class="options" data-key="estilo" data-single>
+      <button class="opt" data-val="Sóbrio & Elegante"><span class="emoji">🏛️</span><div class="txt"><h3>Sóbrio & Elegante</h3><p>Passa confiança, seriedade e autoridade</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Leve & Acolhedor"><span class="emoji">🌿</span><div class="txt"><h3>Leve & Acolhedor</h3><p>Próximo, humano e amigável</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Vibrante & Ousado"><span class="emoji">⚡</span><div class="txt"><h3>Vibrante & Ousado</h3><p>Energético, colorido, chama atenção</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Minimalista & Clean"><span class="emoji">⬛</span><div class="txt"><h3>Minimalista & Clean</h3><p>Sofisticado, com foco nas imagens</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Criativo & Marcante"><span class="emoji">✨</span><div class="txt"><h3>Criativo & Marcante</h3><p>Tipografia forte e muita personalidade</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Outro"><span class="emoji">💭</span><div class="txt"><h3>Outro clima</h3><p>Descreva a vibe que você imagina</p></div><span class="check"></span></button>
+    </div>
+    <div class="field conditional" id="estilo-outro-box">
+      <label>Como você descreveria esse clima? <span>*</span></label>
+      <input id="f-estilo-outro" type="text" placeholder="Ex.: Rústico e artesanal, futurista, aconchegante..." />
+    </div>
+  </section>
+
+  <!-- STEP 4 — Cores -->
+  <section class="step" data-step="4">
+    <p class="q-kicker">Identidade visual</p>
+    <h2 class="q-title">Quais cores têm a sua cara?</h2>
+    <p class="q-sub">Escolha uma combinação pronta ou monte a sua logo abaixo.</p>
+    <div class="palette-grid" id="palette-grid"></div>
+    <div class="custom-colors">
+      <h4>Prefere escolher você mesmo(a)?</h4>
+      <p>Toque nos quadrados e escolha suas cores favoritas.</p>
+      <div class="color-pickers">
+        <label class="color-pick">Cor principal<input type="color" id="c1" value="#7c83ff" /></label>
+        <label class="color-pick">Cor de fundo<input type="color" id="c2" value="#0c0d12" /></label>
+        <label class="color-pick">Cor de destaque<input type="color" id="c3" value="#ff8fb1" /></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 5 — Tipografia -->
+  <section class="step" data-step="5">
+    <p class="q-kicker">Estilo de letra</p>
+    <h2 class="q-title">Que tipo de letra você curte?</h2>
+    <p class="q-sub">A tipografia muda muito a personalidade da página. Escolha a que mais agrada.</p>
+    <div class="font-grid" data-key="fonte" data-single>
+      <button class="font-opt" data-val="Clássica & Elegante" style="font-family:'Cormorant Garamond',serif"><div class="aa">Aa</div><div class="sample">Sofisticada e atemporal</div><div class="label" style="font-family:var(--sans)">Clássica & Elegante</div></button>
+      <button class="font-opt" data-val="Editorial & Sofisticada" style="font-family:'Playfair Display',serif;font-weight:700"><div class="aa">Aa</div><div class="sample">Refinada como uma revista</div><div class="label" style="font-family:var(--sans);font-weight:400">Editorial & Sofisticada</div></button>
+      <button class="font-opt" data-val="Boutique & Delicada" style="font-family:'DM Serif Display',serif"><div class="aa">Aa</div><div class="sample">Feminina e romântica</div><div class="label" style="font-family:var(--sans);font-weight:400">Boutique & Delicada</div></button>
+      <button class="font-opt" data-val="Suave & Aérea" style="font-family:'Italiana',serif"><div class="aa">Aa</div><div class="sample">Fina, aérea e sofisticada</div><div class="label" style="font-family:var(--sans);font-weight:400">Suave & Aérea</div></button>
+      <button class="font-opt" data-val="Moderna & Clean" style="font-family:'Inter',sans-serif"><div class="aa">Aa</div><div class="sample">Limpa e profissional</div><div class="label" style="font-family:var(--sans)">Moderna & Clean</div></button>
+      <button class="font-opt" data-val="Descontraída & Amigável" style="font-family:'Nunito',sans-serif;font-weight:800"><div class="aa">Aa</div><div class="sample">Próxima e simpática</div><div class="label" style="font-family:var(--sans);font-weight:400">Descontraída & Amigável</div></button>
+      <button class="font-opt" data-val="Marcante & Forte" style="font-family:'Space Grotesk',sans-serif;font-weight:700"><div class="aa">Aa</div><div class="sample">Ousada e cheia de atitude</div><div class="label" style="font-family:var(--sans);font-weight:400">Marcante & Forte</div></button>
+      <button class="font-opt" data-val="Impacto & Alto Contraste" style="font-family:'Bebas Neue',sans-serif;letter-spacing:0.04em"><div class="aa">Aa</div><div class="sample" style="letter-spacing:0.06em">DIRETA E CONDENSADA</div><div class="label" style="font-family:var(--sans);font-weight:400;letter-spacing:0">Impacto & Alto Contraste</div></button>
+      <button class="font-opt" data-val="Retrô & Chamativa" style="font-family:'Abril Fatface',serif"><div class="aa">Aa</div><div class="sample">Nostálgica, cheia de charme</div><div class="label" style="font-family:var(--sans);font-weight:400">Retrô & Chamativa</div></button>
+      <button class="font-opt" data-val="Manuscrita & Pessoal" style="font-family:'Caveat',cursive;font-weight:700"><div class="aa">Aa</div><div class="sample">Feita à mão, humana e única</div><div class="label" style="font-family:var(--sans);font-weight:400">Manuscrita & Pessoal</div></button>
+      <button class="font-opt" data-val="Técnica & Digital" style="font-family:'JetBrains Mono',monospace;font-weight:500"><div class="aa">Aa</div><div class="sample">Precisa, técnica, digital</div><div class="label" style="font-family:var(--sans);font-weight:400">Técnica & Digital</div></button>
+      <button class="font-opt" data-val="Outra"><div class="aa" style="font-family:var(--sans)">✎</div><div class="sample" style="font-family:var(--sans)">Descreva o que você imagina</div><div class="label" style="font-family:var(--sans)">Outra fonte</div></button>
+    </div>
+    <div class="field conditional" id="fonte-outra-box">
+      <label>Que tipo de letra você imagina? <span>*</span></label>
+      <input id="f-fonte-outra" type="text" placeholder="Ex.: parecida com a de tal marca, cursiva estilo caligrafia, futurista..." />
+    </div>
+  </section>
+
+  <!-- STEP 6 — Imagens -->
+  <section class="step" data-step="6">
+    <p class="q-kicker">Suas imagens</p>
+    <h2 class="q-title">O que você já tem de visual?</h2>
+    <p class="q-sub">Pode marcar mais de uma. Isso me ajuda a saber o que preparar pra você.</p>
+    <div class="options" data-key="imagens">
+      <button class="opt" data-val="Tenho fotos minhas (perfil)"><span class="emoji">🤳</span><div class="txt"><h3>Tenho fotos minhas</h3><p>Fotos de perfil / pessoais boas</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Tenho fotos de trabalhos"><span class="emoji">🖼️</span><div class="txt"><h3>Tenho fotos de trabalhos</h3><p>Projetos, produtos ou resultados pra mostrar</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Já tenho logo"><span class="emoji">🔖</span><div class="txt"><h3>Já tenho logo</h3><p>Marca/logotipo pronto</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Não tenho imagens ainda"><span class="emoji">📭</span><div class="txt"><h3>Ainda não tenho imagens</h3><p>Quero sugestões <em style="color:var(--accent);font-style:normal">(será feito por IA)</em></p></div><span class="check"></span></button>
+    </div>
+    <div class="field conditional" id="imagens-link-box">
+      <label>Cole o link com suas imagens <span>(opcional)</span></label>
+      <input id="f-imagens-link" type="text" placeholder="Google Drive, WeTransfer, iCloud, Dropbox, Google Fotos..." />
+      <p style="font-size:0.82rem;color:var(--dim);margin-top:8px;line-height:1.5">
+        💡 <strong>Como fazer:</strong> junte suas fotos numa pasta, gere um link de compartilhamento e cole aqui.
+        Se preferir, envie as imagens direto pelo WhatsApp depois de finalizar.
+      </p>
+    </div>
+  </section>
+
+  <!-- STEP 7 — Seções -->
+  <section class="step" data-step="7">
+    <p class="q-kicker">Conteúdo da página</p>
+    <h2 class="q-title">O que não pode faltar no seu portfólio?</h2>
+    <p class="q-sub">Marque tudo que fizer sentido pra você.</p>
+    <div class="options" data-key="secoes">
+      <button class="opt" data-val="Sobre mim"><span class="emoji">👋</span><div class="txt"><h3>Sobre mim</h3><p>Minha história e o que me diferencia</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Serviços / Especialidades"><span class="emoji">🧩</span><div class="txt"><h3>Serviços / Especialidades</h3><p>O que eu ofereço</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Galeria / Projetos"><span class="emoji">📁</span><div class="txt"><h3>Galeria / Projetos</h3><p>Mostrar trabalhos anteriores</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Depoimentos"><span class="emoji">💬</span><div class="txt"><h3>Depoimentos</h3><p>O que meus clientes dizem</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Números / Resultados"><span class="emoji">📊</span><div class="txt"><h3>Números / Resultados</h3><p>Dados que provam meu trabalho</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Preços / Pacotes"><span class="emoji">🏷️</span><div class="txt"><h3>Preços / Pacotes</h3><p>Mostrar valores ou planos</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Contato / Agendamento"><span class="emoji">📩</span><div class="txt"><h3>Contato / Agendamento</h3><p>WhatsApp, e-mail e redes</p></div><span class="check"></span></button>
+    </div>
+    <div class="field" style="margin-top:26px">
+      <label>Quer adicionar mais alguma coisa que não pode faltar? <span>(opcional)</span></label>
+      <textarea id="f-secoes-extras" placeholder="Ex.: Blog, Certificações, Prêmios, FAQ, Parceiros, Newsletter, Currículo pra download..."></textarea>
+    </div>
+  </section>
+
+  <!-- STEP 8 — Objetivo + destaques -->
+  <section class="step" data-step="8">
+    <p class="q-kicker">Estratégia</p>
+    <h2 class="q-title">Quais são seus objetivos?</h2>
+    <p class="q-sub">Pode marcar mais de um. Isso define o tom da página e onde colocar os botões de ação.</p>
+    <div class="options" data-key="objetivo">
+      <button class="opt" data-val="Conseguir novos clientes"><span class="emoji">🤝</span><div class="txt"><h3>Conseguir novos clientes</h3><p>Quero que me contratem</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Mostrar meus trabalhos"><span class="emoji">🖼️</span><div class="txt"><h3>Mostrar meus trabalhos</h3><p>Um portfólio visual do que faço</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Passar credibilidade"><span class="emoji">🏅</span><div class="txt"><h3>Passar credibilidade</h3><p>Reforçar minha autoridade</p></div><span class="check"></span></button>
+      <button class="opt" data-val="Vender um serviço específico"><span class="emoji">💰</span><div class="txt"><h3>Vender um serviço específico</h3><p>Tenho um pacote principal pra divulgar</p></div><span class="check"></span></button>
+    </div>
+    <div class="field" style="margin-top:26px"><label>Quer destacar algum serviço, especialidade ou conquista? <span>(opcional)</span></label><textarea id="f-destaques" placeholder="Ex.: Atendimento online, mais de 200 clientes, especialista em emagrecimento..."></textarea></div>
+  </section>
+
+  <!-- STEP 9 — Redes sociais e links -->
+  <section class="step" data-step="9">
+    <p class="q-kicker">Sua presença online</p>
+    <h2 class="q-title">Onde te encontram na internet?</h2>
+    <p class="q-sub">Cole os links das redes e sites que você já usa. Pode deixar em branco o que não tiver.</p>
+    <div class="field-row">
+      <div class="field"><label>Instagram <span>(link ou @)</span></label><input id="f-insta" type="text" placeholder="@seu_perfil ou instagram.com/..." /></div>
+      <div class="field"><label>LinkedIn <span>(opcional)</span></label><input id="f-linkedin" type="text" placeholder="linkedin.com/in/..." /></div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>YouTube <span>(opcional)</span></label><input id="f-youtube" type="text" placeholder="youtube.com/@seu_canal" /></div>
+      <div class="field"><label>TikTok <span>(opcional)</span></label><input id="f-tiktok" type="text" placeholder="tiktok.com/@seu_perfil" /></div>
+    </div>
+    <div class="field"><label>Site atual <span>(opcional)</span></label><input id="f-site" type="text" placeholder="www.seusite.com.br" /></div>
+
+    <!-- Redes sociais extras (dinâmico) -->
+    <div id="extra-socials"></div>
+    <button type="button" class="add-social-btn" id="btn-add-social">
+      <span class="plus">＋</span> Adicionar outra rede social
+    </button>
+
+    <div class="field" style="margin-top:22px"><label>Sites ou portfólios que te inspiram <span>(opcional, cole links)</span></label><textarea id="f-refs" placeholder="Referências visuais que você admira — ajuda a captar seu gosto."></textarea></div>
+  </section>
+
+  <!-- STEP 10 — Contato + observações -->
+  <section class="step" data-step="10">
+    <p class="q-kicker">Quase lá!</p>
+    <h2 class="q-title">Como falo com você?</h2>
+    <p class="q-sub">Preciso do seu contato pra te enviar o portfólio pronto.</p>
+    <div class="field-row">
+      <div class="field"><label>E-mail de contato <span>*</span></label><input id="f-email" type="email" placeholder="seu@email.com" /></div>
+      <div class="field"><label>WhatsApp <span>*</span></label><input id="f-wpp" type="text" placeholder="(11) 99999-0000" /></div>
+    </div>
+    <div class="field"><label>Cidade / Região <span>(opcional)</span></label><input id="f-cidade" type="text" placeholder="Ex.: São Paulo · SP" /></div>
+    <div class="field"><label>Mais alguma observação? <span>(opcional)</span></label><textarea id="f-obs" placeholder="Qualquer detalhe extra: prazo, o que você quer diferente do modelo escolhido, etc."></textarea></div>
+  </section>
+
+  <!-- STEP 11 — Resultado -->
+  <section class="step result" data-step="11">
+    <span class="badge-ok">✓ Pronto!</span>
+    <h2>Recebemos tudo, <em id="r-nome">você</em>!</h2>
+    <p class="intro">Aqui está o resumo do seu portfólio dos sonhos. É só enviar pra mim e eu começo a criar a sua página personalizada. 💜</p>
+
+    <div class="send-actions">
+      <a class="btn btn-wpp" id="btn-wpp" href="#" target="_blank">💬 Enviar pelo WhatsApp</a>
+      <a class="btn btn-mail" id="btn-mail" href="#">✉️ Enviar por e-mail</a>
+    </div>
+    <button class="copy-link" id="btn-copy">ou copiar o resumo</button>
+
+    <div class="brief" id="brief"></div>
+
+    <div class="restart"><button id="btn-restart">↺ Recomeçar</button></div>
+  </section>
+</div>
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <button class="btn btn-ghost" id="btn-prev">← Voltar</button>
+    <button class="btn" id="btn-next" disabled>Continuar →</button>
+  </div>
+</div>
+
+<script>
+// ===================== Paletas prontas =====================
+const PALETAS = [
+  { nome: "Marinho & Dourado",  c: ["#0f1c30", "#c9a24b", "#f7f4ed"] },
+  { nome: "Verde Natural",       c: ["#3f7d5c", "#f2a65a", "#eef6ee"] },
+  { nome: "Roxo & Rosa Neon",    c: ["#6c2bd9", "#ff2d78", "#ffd23f"] },
+  { nome: "Preto & Dourado",     c: ["#0a0a0a", "#c9a36a", "#f4f1ea"] },
+  { nome: "Amarelo Elétrico",    c: ["#f3ec18", "#2b4eff", "#141414"] },
+  { nome: "Coral & Areia",       c: ["#e8836b", "#5a8f7b", "#fdeee8"] },
+  { nome: "Azul & Menta",        c: ["#2b4eff", "#00e0c6", "#0a0e16"] },
+  { nome: "Terroso & Sálvia",    c: ["#6b8e6b", "#d98c5f", "#f3f0e7"] }
+];
+
+// ===================== Modelos base (via ?base=X) =====================
+// Cada modelo pré-define área, estilo, cores e fonte — pulando esses passos.
+const BASE_MODELOS = {
+  advogado: {
+    nome: "Sóbrio & Confiável — Advogado",
+    area: "Jurídico & Consultoria", estilo: "Sóbrio & Elegante",
+    paletaNome: "Marinho & Dourado", cores: ["#0f1c30", "#c9a24b", "#f7f4ed"],
+    fonte: "Clássica & Elegante"
+  },
+  nutricionista: {
+    nome: "Fresco & Acolhedor — Nutricionista",
+    area: "Saúde & Bem-estar", estilo: "Leve & Acolhedor",
+    paletaNome: "Verde Natural", cores: ["#3f7d5c", "#f2a65a", "#eef6ee"],
+    fonte: "Descontraída & Amigável"
+  },
+  marketing: {
+    nome: "Vibrante & Ousado — Marketing",
+    area: "Marketing & Social Media", estilo: "Vibrante & Ousado",
+    paletaNome: "Roxo & Rosa Neon", cores: ["#6c2bd9", "#ff2d78", "#ffd23f"],
+    fonte: "Marcante & Forte"
+  },
+  fotografo: {
+    nome: "Minimal & Galeria — Fotógrafo",
+    area: "Fotografia & Visual", estilo: "Minimalista & Clean",
+    paletaNome: "Preto & Dourado", cores: ["#0a0a0a", "#c9a36a", "#f4f1ea"],
+    fonte: "Moderna & Clean"
+  },
+  designer: {
+    nome: "Criativo & Bold — Designer",
+    area: "Design & Criativo", estilo: "Criativo & Marcante",
+    paletaNome: "Amarelo Elétrico", cores: ["#f3ec18", "#2b4eff", "#141414"],
+    fonte: "Marcante & Forte"
+  }
+};
+// Passos ocultos quando o cliente vem por um template (área/estilo/cores/fontes já definidos)
+const STEPS_OCULTOS_COM_BASE = [1, 3, 4, 5];
+
+// ===================== Estado =====================
+const respostas = {
+  area: null, estilo: null, fonte: null,
+  imagens: [], secoes: [], objetivo: [],
+  paletaNome: null, cores: null,
+  modeloBase: null   // slug do template escolhido, se houver
+};
+let stepAtual = 1;
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => document.querySelectorAll(s);
+
+// Lista de steps ativos (todos ou só os visíveis, dependendo do modo)
+let STEPS_ATIVOS = Array.from($$('.step')).map(s => +s.dataset.step);
+let TOTAL_STEPS = STEPS_ATIVOS.length;   // inclui o resultado
+
+// ===================== Detectar ?base=X =====================
+(function aplicarModeloBase() {
+  const params = new URLSearchParams(location.search);
+  const slug = params.get('base');
+  if (!slug || !BASE_MODELOS[slug]) return;
+
+  const m = BASE_MODELOS[slug];
+  respostas.modeloBase = slug;
+  respostas.area = m.area;
+  respostas.estilo = m.estilo;
+  respostas.fonte = m.fonte;
+  respostas.paletaNome = m.paletaNome;
+  respostas.cores = m.cores.slice();
+
+  // Banner
+  $('#mb-name').textContent = m.nome;
+  $('#model-banner').classList.add('on');
+
+  // Esconde passos redundantes
+  STEPS_OCULTOS_COM_BASE.forEach(n => {
+    const el = document.querySelector(`.step[data-step="${n}"]`);
+    if (el) el.dataset.hidden = "1";
+  });
+  STEPS_ATIVOS = STEPS_ATIVOS.filter(n => !STEPS_OCULTOS_COM_BASE.includes(n));
+  TOTAL_STEPS = STEPS_ATIVOS.length;
+  stepAtual = STEPS_ATIVOS[0];   // primeiro passo visível (será o 2, Identidade)
+})();
+
+// ===================== Render paletas =====================
+const pg = $('#palette-grid');
+pg.innerHTML = PALETAS.map((p, i) =>
+  `<div class="palette" data-i="${i}"><div class="bars">${p.c.map(c => `<span style="background:${c}"></span>`).join('')}</div><div class="pname">${p.nome}</div></div>`).join('');
+pg.querySelectorAll('.palette').forEach(el => el.addEventListener('click', () => {
+  pg.querySelectorAll('.palette').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  const p = PALETAS[+el.dataset.i];
+  respostas.paletaNome = p.nome; respostas.cores = p.c.slice();
+}));
+// pré-seleciona a paleta do modelo base (se houver) ou a primeira
+(function preSelecionarPaleta() {
+  let idx = 0;
+  if (respostas.paletaNome) {
+    const i = PALETAS.findIndex(p => p.nome === respostas.paletaNome);
+    if (i >= 0) idx = i;
+  }
+  const alvo = pg.querySelectorAll('.palette')[idx];
+  if (alvo) alvo.classList.add('sel');
+  // Só define defaults se ninguém já setou (modo sem base)
+  if (!respostas.paletaNome) {
+    respostas.paletaNome = PALETAS[idx].nome;
+    respostas.cores = PALETAS[idx].c.slice();
+  }
+})();
+
+// Color pickers personalizados
+['c1', 'c2', 'c3'].forEach(id => $('#' + id).addEventListener('input', () => {
+  pg.querySelectorAll('.palette').forEach(o => o.classList.remove('sel'));
+  respostas.paletaNome = "Personalizada";
+  respostas.cores = [$('#c1').value, $('#c2').value, $('#c3').value];
+}));
+
+// ===================== Seleção de opções (cards) =====================
+function bindGroup(group) {
+  const key = group.dataset.key;
+  const single = group.hasAttribute('data-single');
+  group.querySelectorAll('.opt, .font-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const val = btn.dataset.val;
+      if (single) {
+        group.querySelectorAll('.opt, .font-opt').forEach(o => o.classList.remove('sel'));
+        btn.classList.add('sel');
+        respostas[key] = val;
+      } else {
+        btn.classList.toggle('sel');
+        const arr = respostas[key];
+        const idx = arr.indexOf(val);
+        if (idx > -1) arr.splice(idx, 1); else arr.push(val);
+      }
+      validar();
+    });
+  });
+}
+$$('[data-key]').forEach(bindGroup);
+
+// ===================== Navegação =====================
+function idxAtivo(n) { return STEPS_ATIVOS.indexOf(n); }
+function mostrarStep(n) {
+  $$('.step').forEach(s => s.classList.toggle('active', +s.dataset.step === n));
+  const i = idxAtivo(n);              // posição do passo atual dentro dos ativos
+  const posHumana = i + 1;            // 1-indexed para exibição
+  $('#bar').style.width = (posHumana / TOTAL_STEPS * 100) + '%';
+  $('#step-count').textContent = `Passo ${posHumana} de ${TOTAL_STEPS}`;
+  $('#btn-prev').style.visibility = i === 0 ? 'hidden' : 'visible';
+  $('#btn-next').textContent = i === TOTAL_STEPS - 2 ? 'Finalizar ✦' : 'Continuar →';
+  $('.navbar').style.display = i === TOTAL_STEPS - 1 ? 'none' : 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  validar();
+}
+function validar() {
+  let ok = true;
+  if (stepAtual === 1) {
+    ok = !!respostas.area;
+    // Se escolheu "Outra área", precisa preencher qual
+    if (respostas.area === "Outra área") ok = ok && $('#f-area-outra').value.trim().length > 0;
+  }
+  else if (stepAtual === 2) ok = $('#f-nome').value.trim().length > 0;
+  else if (stepAtual === 3) {
+    ok = !!respostas.estilo;
+    if (respostas.estilo === "Outro") ok = ok && $('#f-estilo-outro').value.trim().length > 0;
+  }
+  else if (stepAtual === 5) {
+    ok = !!respostas.fonte;
+    if (respostas.fonte === "Outra") ok = ok && $('#f-fonte-outra').value.trim().length > 0;
+  }
+  else if (stepAtual === 8) ok = respostas.objetivo.length > 0;
+  else if (stepAtual === 10) ok = $('#f-email').value.trim().length > 0 && $('#f-wpp').value.trim().length > 0;
+  $('#btn-next').disabled = !ok;
+}
+$('#f-nome').addEventListener('input', validar);
+$('#f-email').addEventListener('input', validar);
+$('#f-wpp').addEventListener('input', validar);
+
+// Helper: mostra caixa condicional quando uma opção específica é selecionada
+function bindCondicional({ groupKey, triggerVal, boxSel, inputSel }) {
+  const box = $(boxSel);
+  const input = $(inputSel);
+  document.querySelectorAll(`[data-key="${groupKey}"] .opt, [data-key="${groupKey}"] .font-opt`).forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isTrigger = btn.dataset.val === triggerVal && btn.classList.contains('sel');
+      box.classList.toggle('on', isTrigger);
+      if (isTrigger) setTimeout(() => input.focus(), 100);
+      else input.value = "";
+      validar();
+    });
+  });
+  input.addEventListener('input', validar);
+}
+bindCondicional({ groupKey: "area",   triggerVal: "Outra área", boxSel: "#area-outra-box",   inputSel: "#f-area-outra" });
+bindCondicional({ groupKey: "estilo", triggerVal: "Outro",      boxSel: "#estilo-outro-box", inputSel: "#f-estilo-outro" });
+bindCondicional({ groupKey: "fonte",  triggerVal: "Outra",      boxSel: "#fonte-outra-box",  inputSel: "#f-fonte-outra" });
+
+// Campo de link das imagens: aparece quando o cliente marca ao menos uma opção "positiva"
+const IMAGENS_GATILHOS = ["Tenho fotos minhas (perfil)", "Tenho fotos de trabalhos", "Já tenho logo"];
+const imagensLinkBox = $('#imagens-link-box');
+document.querySelectorAll('[data-key="imagens"] .opt').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const algumPositivo = respostas.imagens.some(v => IMAGENS_GATILHOS.includes(v));
+    imagensLinkBox.classList.toggle('on', algumPositivo);
+    if (!algumPositivo) $('#f-imagens-link').value = "";
+  });
+});
+
+$('#btn-next').addEventListener('click', () => {
+  const i = idxAtivo(stepAtual);
+  if (i < TOTAL_STEPS - 2) {
+    stepAtual = STEPS_ATIVOS[i + 1];
+    mostrarStep(stepAtual);
+  } else {
+    stepAtual = STEPS_ATIVOS[TOTAL_STEPS - 1];   // resultado
+    gerarResumo();
+    mostrarStep(stepAtual);
+  }
+});
+// ===================== Redes sociais extras =====================
+const extraSocials = $('#extra-socials');
+function adicionarRedeSocial(nome = "", link = "") {
+  const row = document.createElement('div');
+  row.className = 'extra-social-row';
+  row.innerHTML = `
+    <div class="field"><label>Rede</label><input type="text" class="es-nome" placeholder="Ex.: Behance, Twitch..." value="${nome.replace(/"/g,'&quot;')}" /></div>
+    <div class="field"><label>Link / usuário</label><input type="text" class="es-link" placeholder="Cole o link ou @perfil" value="${link.replace(/"/g,'&quot;')}" /></div>
+    <button type="button" class="remove-btn" title="Remover" aria-label="Remover rede social">×</button>
+  `;
+  row.querySelector('.remove-btn').addEventListener('click', () => row.remove());
+  extraSocials.appendChild(row);
+  row.querySelector('.es-nome').focus();
+}
+$('#btn-add-social').addEventListener('click', () => adicionarRedeSocial());
+
+$('#btn-prev').addEventListener('click', () => {
+  const i = idxAtivo(stepAtual);
+  if (i > 0) { stepAtual = STEPS_ATIVOS[i - 1]; mostrarStep(stepAtual); }
+});
+
+// ===================== Resumo / Briefing =====================
+function val(id) { return $(id).value.trim(); }
+function ouTraco(s) { return s || "—"; }
+
+function gerarResumo() {
+  const nomeCompleto = val('#f-nome') || "Cliente";
+  const primeiroNome = nomeCompleto.split(/\s+/)[0];
+  $('#r-nome').textContent = primeiroNome;
+
+  const areaFinal = respostas.area === "Outra área" && val('#f-area-outra')
+    ? `Outra área — ${val('#f-area-outra')}`
+    : respostas.area;
+  const estiloFinal = respostas.estilo === "Outro" && val('#f-estilo-outro')
+    ? `Outro — ${val('#f-estilo-outro')}`
+    : respostas.estilo;
+  const fonteFinal = respostas.fonte === "Outra" && val('#f-fonte-outra')
+    ? `Outra — ${val('#f-fonte-outra')}`
+    : respostas.fonte;
+
+  // Coleta redes sociais extras
+  const redesExtras = [];
+  $$('.extra-social-row').forEach(row => {
+    const n = row.querySelector('.es-nome').value.trim();
+    const l = row.querySelector('.es-link').value.trim();
+    if (n || l) redesExtras.push([n || "Rede social", l || "—"]);
+  });
+
+  // Estrutura em seções temáticas
+  const secoes = [
+    { titulo: "👤 Sobre mim", itens: [
+      ["Nome / marca", ouTraco(val('#f-nome'))],
+      ["Área de atuação", ouTraco(areaFinal)],
+      ["O que faço", ouTraco(val('#f-prof'))],
+      ["Frase de impacto", ouTraco(val('#f-tag'))],
+      ["Um pouco sobre mim", ouTraco(val('#f-sobre'))]
+    ]},
+    { titulo: "🎨 Identidade visual", itens: [
+      ["Estilo desejado", ouTraco(estiloFinal)],
+      ["Paleta de cores", { tipo: "cores", nome: respostas.paletaNome, c: respostas.cores }],
+      ["Tipografia", ouTraco(fonteFinal)]
+    ]},
+    { titulo: "📄 Conteúdo da página", itens: [
+      ["Imagens que já tenho", { tipo: "tags", v: respostas.imagens }],
+      ["Link com as imagens", ouTraco(val('#f-imagens-link'))],
+      ["Seções desejadas", { tipo: "tags", v: respostas.secoes }],
+      ["Outras seções (personalizado)", ouTraco(val('#f-secoes-extras'))],
+      ["Objetivos", { tipo: "tags", v: respostas.objetivo }],
+      ["Destaques", ouTraco(val('#f-destaques'))]
+    ]},
+    { titulo: "🌐 Minhas redes e links", itens: [
+      ["Instagram", ouTraco(val('#f-insta'))],
+      ["LinkedIn", ouTraco(val('#f-linkedin'))],
+      ["YouTube", ouTraco(val('#f-youtube'))],
+      ["TikTok", ouTraco(val('#f-tiktok'))],
+      ["Site atual", ouTraco(val('#f-site'))],
+      ...redesExtras,
+      ["Inspirações", ouTraco(val('#f-refs'))]
+    ]},
+    { titulo: "📞 Meu contato", itens: [
+      ["E-mail", ouTraco(val('#f-email'))],
+      ["WhatsApp", ouTraco(val('#f-wpp'))],
+      ["Cidade / Região", ouTraco(val('#f-cidade'))],
+      ["Observações extras", ouTraco(val('#f-obs'))]
+    ]}
+  ];
+
+  // ---------- Render do cartão visual (HTML) ----------
+  let html = `<h3>📋 Resumo das minhas respostas</h3>`;
+  if (respostas.modeloBase) {
+    html += `<div class="brief-modelo">✦ Modelo escolhido como base: <strong>${BASE_MODELOS[respostas.modeloBase].nome}</strong></div>`;
+  }
+  for (const sec of secoes) {
+    html += `<div class="brief-section"><h4>${sec.titulo}</h4>`;
+    for (const [k, v] of sec.itens) {
+      let vis;
+      if (v && v.tipo === "cores") {
+        vis = `<span class="dots">${(v.c || []).map(c => `<span class="dot" style="background:${c}"></span>`).join('')}</span> ${v.nome || ''}`;
+      } else if (v && v.tipo === "tags") {
+        vis = v.v && v.v.length ? `<span class="tag-list">${v.v.map(t => `<span>${t}</span>`).join('')}</span>` : "—";
+      } else {
+        vis = String(v).replace(/</g, "&lt;").replace(/\n/g, "<br>");
+      }
+      html += `<div class="brief-row"><div class="k">${k}</div><div class="v">${vis}</div></div>`;
+    }
+    html += `</div>`;
+  }
+  $('#brief').innerHTML = html;
+
+  // ---------- Texto para WhatsApp / e-mail / cópia ----------
+  // Formata cada item; pula os que estão vazios ("—" ou lista vazia)
+  function formatarValor(v) {
+    if (v && v.tipo === "cores") return `${v.nome} (${(v.c || []).join(", ")})`;
+    if (v && v.tipo === "tags")  return v.v && v.v.length ? v.v.join(", ") : "";
+    return v === "—" ? "" : v;
+  }
+
+  const partesTxt = [];
+  partesTxt.push(`Olá Cadu! 👋\n\nMe chamo *${nomeCompleto}* e me interessei em montar o meu portfólio com o Studio Portfólios.`);
+  if (respostas.modeloBase) {
+    partesTxt.push(`\nEscolhi o modelo *${BASE_MODELOS[respostas.modeloBase].nome}* como base pra começar. ✨`);
+  }
+  partesTxt.push(`\nSegue abaixo o resumo do que respondi no questionário:\n`);
+
+  for (const sec of secoes) {
+    const itensPreenchidos = sec.itens
+      .map(([k, v]) => [k, formatarValor(v)])
+      .filter(([, v]) => v && v.length);
+    if (!itensPreenchidos.length) continue;
+    partesTxt.push(`\n*━━━ ${sec.titulo} ━━━*`);
+    itensPreenchidos.forEach(([k, v]) => partesTxt.push(`• *${k}:* ${v}`));
+  }
+
+  partesTxt.push(`\n\nFico no aguardo do seu retorno pra darmos início. Obrigado(a)! ✨`);
+
+  const resumoTxt = partesTxt.join("\n");
+
+  // Botão WhatsApp
+  const wppBtn = $('#btn-wpp');
+  if (DESTINO.whatsapp) {
+    wppBtn.href = `https://wa.me/${DESTINO.whatsapp}?text=` + encodeURIComponent(resumoTxt);
+    wppBtn.style.display = "";
+  } else {
+    wppBtn.style.display = "none";
+  }
+  // Botão e-mail
+  $('#btn-mail').href = `mailto:${DESTINO.email}?subject=` +
+    encodeURIComponent(`Novo portfólio — ${nomeCompleto}`) +
+    `&body=` + encodeURIComponent(resumoTxt.replace(/\*/g, ""));
+
+  // Copiar
+  $('#btn-copy').onclick = () => {
+    navigator.clipboard.writeText(resumoTxt.replace(/\*/g, "")).then(() => {
+      $('#btn-copy').textContent = "resumo copiado! ✓";
+      setTimeout(() => $('#btn-copy').textContent = "ou copiar o resumo", 2000);
+    });
+  };
+}
+
+$('#btn-restart').addEventListener('click', () => location.reload());
+
+// init
+mostrarStep(stepAtual);
+
+// ===================== Tema (claro / escuro) =====================
+(function () {
+  const root = document.documentElement;
+  const tBtn = document.getElementById('themeToggle');
+  const tIcon = tBtn.querySelector('.theme-icon');
+  function syncTema() {
+    const dark = root.getAttribute('data-theme') === 'dark';
+    tIcon.textContent = dark ? '☀️' : '🌙';
+    tBtn.title = dark ? 'Mudar para o modo claro' : 'Mudar para o modo escuro';
+  }
+  syncTema();
+  tBtn.addEventListener('click', () => {
+    const dark = root.getAttribute('data-theme') === 'dark';
+    if (dark) { root.removeAttribute('data-theme'); }
+    else { root.setAttribute('data-theme', 'dark'); }
+    try { localStorage.setItem('theme', dark ? 'light' : 'dark'); } catch (e) {}
+    syncTema();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfólio — Marketing</title>
+<meta name="description" content="Modelo de portfólio profissional para social media, publicitários e criadores de conteúdo — gradientes energéticos e números que impressionam." />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/css/base-cta.css" />
+
+<!-- ============================================================
+     ✏️  EDITE AQUI  — Modelo: MARKETING / Social Media / Publicidade
+     Preencha com os dados do questionário. A página se monta sozinha.
+     ============================================================ -->
+<script>
+const CONFIG = {
+  nome:       "Lucas Andrade",
+  profissao:  "Social Media & Gestor de Tráfego",
+  tagline:    "Transformo seguidores em clientes. Conteúdo que para o scroll e gera resultado.",
+  iniciais:   "LA",
+
+  // --- Cores do gradiente (topo) ---
+  corA:      "#6c2bd9",   // roxo
+  corB:      "#ff2d78",   // rosa choque
+  corDestaque: "#ffd23f", // amarelo (botões/destaques)
+
+  sobre: "Já gerenciei mais de 40 perfis e campanhas que somam milhões de visualizações. " +
+         "Meu foco é simples: estratégia de conteúdo + tráfego pago que realmente vende. " +
+         "Nada de métrica de vaidade — aqui a gente olha pra faturamento.",
+
+  // --- Números de impacto ---
+  numeros: [
+    { valor: "+4M", label: "Alcance gerado" },
+    { valor: "+40", label: "Marcas atendidas" },
+    { valor: "5x", label: "ROI médio em ads" },
+    { valor: "+120", label: "Campanhas no ar" }
+  ],
+
+  // --- Serviços ---
+  servicos: [
+    { titulo: "Gestão de Redes Sociais", desc: "Planejamento, criação e publicação de conteúdo estratégico." },
+    { titulo: "Tráfego Pago", desc: "Campanhas no Meta e Google que convertem de verdade." },
+    { titulo: "Branding & Identidade", desc: "Posicionamento e estética que destacam sua marca." },
+    { titulo: "Consultoria Express", desc: "Diagnóstico e plano de ação para você aplicar sozinho(a)." }
+  ],
+
+  // --- Cases / Projetos (use links de imagem ou deixe "" para card colorido) ---
+  cases: [
+    { titulo: "Café Aurora", tag: "Instagram +300% engajamento", img: "" },
+    { titulo: "Loja Nômade", tag: "Ads · 6x retorno em 60 dias", img: "" },
+    { titulo: "Studio Pilates", tag: "De 800 para 12k seguidores", img: "" }
+  ],
+
+  // --- Depoimento ---
+  depoimento: "O Lucas virou a chave do nosso negócio. Em 3 meses dobramos as vendas pelo Instagram.",
+  depoimentoAutor: "Bia · Café Aurora",
+
+  // --- Contato ---
+  whatsapp:  "5511999990000",
+  email:     "lucas@agencialucas.com",
+  instagram: "https://instagram.com/seu-perfil",
+  tiktok:    "https://tiktok.com/@seu-perfil"
+};
+</script>
+<!-- ====================  FIM DA ÁREA DE EDIÇÃO  ==================== -->
+
+<style>
+:root {
+  --a: #6c2bd9; --b: #ff2d78; --pop: #ffd23f;
+  --bg: #0d0a14; --surf: #17121f; --txt: #f5f2fb; --dim: #b3a9c4;
+  --grad: linear-gradient(120deg, var(--a), var(--b));
+  --display: "Space Grotesk", sans-serif;
+  --sans: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--txt); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 clamp(20px,5vw,48px); }
+a { color: inherit; text-decoration: none; }
+h1,h2,h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; }
+
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 18px clamp(20px,5vw,48px); position: sticky; top: 0; z-index: 30; background: rgba(13,10,20,0.7); backdrop-filter: blur(12px); }
+.logo { display: flex; align-items: center; gap: 11px; font-family: var(--display); font-weight: 700; font-size: 1.15rem; }
+.logo .mark { width: 40px; height: 40px; border-radius: 12px; background: var(--grad); color: #fff; display: grid; place-items: center; font-size: 0.95rem; }
+.nav-links { display: flex; gap: 26px; font-size: 0.94rem; font-weight: 600; }
+.nav-links a { color: var(--dim); transition: color .2s; }
+.nav-links a:hover { color: var(--txt); }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 100px; font-weight: 700; font-size: 0.95rem; background: var(--pop); color: #1a1020; transition: transform .2s, box-shadow .2s; }
+.btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 30px rgba(255,210,63,0.35); }
+.btn-grad { background: var(--grad); color: #fff; }
+.btn-grad:hover { box-shadow: 0 12px 30px rgba(255,45,120,0.4); }
+
+/* Hero */
+.hero { position: relative; text-align: center; padding: clamp(60px,10vw,120px) 0 clamp(50px,8vw,90px); }
+.hero::before { content: ""; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 760px; height: 520px; background: var(--grad); filter: blur(120px); opacity: 0.35; z-index: -1; }
+.hero .badge { display: inline-flex; align-items: center; gap: 8px; background: var(--surf); border: 1px solid rgba(255,255,255,0.1); padding: 8px 18px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; }
+.hero .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #46e072; box-shadow: 0 0 10px #46e072; }
+.hero h1 { font-size: clamp(2.6rem,7vw,5rem); margin-bottom: 22px; }
+.hero h1 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero .tag { font-size: clamp(1.05rem,2.3vw,1.3rem); color: var(--dim); max-width: 620px; margin: 0 auto 34px; }
+.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.hero .prof { color: var(--pop); font-weight: 700; letter-spacing: 0.04em; margin-top: 28px; font-size: 0.95rem; text-transform: uppercase; }
+
+/* Números */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 18px; margin: clamp(30px,5vw,50px) 0; }
+.stat { background: var(--surf); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 28px 22px; text-align: center; }
+.stat strong { display: block; font-family: var(--display); font-size: clamp(2rem,4vw,2.8rem); background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stat span { color: var(--dim); font-size: 0.9rem; }
+
+/* Sec */
+.sec { padding: clamp(50px,8vw,90px) 0; }
+.sec-head { max-width: 620px; margin: 0 auto 50px; text-align: center; }
+.sec-head .kicker { color: var(--pop); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; }
+.sec-head h2 { font-size: clamp(2rem,4.5vw,3.2rem); margin: 10px 0; }
+.sec-head p { color: var(--dim); }
+
+/* Serviços */
+.serv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 20px; }
+.serv { background: var(--surf); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 30px 26px; position: relative; overflow: hidden; transition: transform .25s, border-color .25s; }
+.serv:hover { transform: translateY(-5px); border-color: rgba(255,45,120,0.5); }
+.serv .n { font-family: var(--display); font-size: 0.85rem; color: var(--pop); margin-bottom: 14px; font-weight: 700; }
+.serv h3 { font-size: 1.35rem; margin-bottom: 8px; }
+.serv p { color: var(--dim); font-size: 0.95rem; }
+
+/* Cases */
+.cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 20px; }
+.case { border-radius: 22px; overflow: hidden; aspect-ratio: 4/5; position: relative; display: flex; align-items: flex-end; background-size: cover; background-position: center; transition: transform .3s; }
+.case:hover { transform: scale(1.02); }
+.case::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%); }
+.case .info { position: relative; z-index: 2; padding: 26px; }
+.case .tag { display: inline-block; background: var(--pop); color: #1a1020; font-weight: 700; font-size: 0.78rem; padding: 5px 12px; border-radius: 100px; margin-bottom: 10px; }
+.case h3 { font-size: 1.5rem; }
+
+/* Depoimento */
+.depo { text-align: center; }
+.depo .box { background: var(--grad); border-radius: 32px; padding: clamp(40px,7vw,80px) clamp(24px,5vw,60px); }
+.depo .quote { font-family: var(--display); font-size: clamp(1.5rem,3.5vw,2.4rem); font-weight: 600; max-width: 760px; margin: 0 auto 18px; line-height: 1.3; }
+.depo .autor { font-weight: 700; opacity: 0.9; }
+
+/* CTA */
+.cta { text-align: center; }
+.cta h2 { font-size: clamp(2.2rem,5vw,3.6rem); margin-bottom: 16px; }
+.cta h2 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.cta p { color: var(--dim); max-width: 500px; margin: 0 auto 30px; font-size: 1.1rem; }
+
+/* Footer */
+footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 44px 0; text-align: center; color: var(--dim); }
+footer .logo { justify-content: center; margin-bottom: 12px; color: var(--txt); }
+footer .socials { display: flex; gap: 18px; justify-content: center; margin-top: 10px; font-weight: 600; }
+footer .socials a:hover { color: var(--pop); }
+
+@media (max-width: 720px) { .nav-links { display: none; } }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#"><span class="mark" id="logo-mark"></span><span id="logo-nome"></span></a>
+  <nav class="nav-links"><a href="#servicos">Serviços</a><a href="#cases">Cases</a><a href="#contato">Contato</a></nav>
+  <a class="btn" id="nav-cta" href="#contato">Bora crescer 🚀</a>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="badge"><span class="dot"></span> Disponível para novos projetos</span>
+    <h1 id="hero-nome"></h1>
+    <p class="tag" id="hero-tag"></p>
+    <div class="hero-actions">
+      <a class="btn btn-grad" id="hero-cta" href="#contato">Quero meus resultados</a>
+      <a class="btn" style="background:var(--surf);color:var(--txt);border:1px solid rgba(255,255,255,0.1)" href="#cases">Ver cases</a>
+    </div>
+    <p class="prof" id="hero-prof"></p>
+  </section>
+
+  <section class="stats" id="stats"></section>
+
+  <section class="sec" id="servicos">
+    <div class="sec-head"><span class="kicker">O que eu faço</span><h2>Serviços</h2><p>Estratégia completa pra sua marca decolar nas redes.</p></div>
+    <div class="serv-grid" id="serv-grid"></div>
+  </section>
+
+  <section class="sec" id="cases">
+    <div class="sec-head"><span class="kicker">Resultados reais</span><h2>Cases de sucesso</h2></div>
+    <div class="cases-grid" id="cases-grid"></div>
+  </section>
+
+  <section class="sec depo">
+    <div class="box">
+      <p class="quote" id="depo-txt"></p>
+      <p class="autor" id="depo-autor"></p>
+    </div>
+  </section>
+
+  <section class="sec cta" id="contato">
+    <h2>Pronto pra <span class="grad">explodir</span> nas redes?</h2>
+    <p id="sobre-txt"></p>
+    <a class="btn btn-grad" id="wpp-btn" href="#" target="_blank" style="font-size:1.05rem;padding:16px 32px">💬 Chamar no WhatsApp</a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#"><span class="mark" id="foot-mark"></span><span id="foot-nome"></span></a>
+    <div class="socials" id="socials"></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const c = CONFIG, $ = (id) => document.getElementById(id);
+  const r = document.documentElement.style;
+  r.setProperty('--a', c.corA); r.setProperty('--b', c.corB); r.setProperty('--pop', c.corDestaque);
+  document.title = "Portfólio — " + c.nome;
+
+  $('logo-mark').textContent = c.iniciais; $('foot-mark').textContent = c.iniciais;
+  $('logo-nome').textContent = c.nome; $('foot-nome').textContent = c.nome;
+  $('hero-nome').innerHTML = c.nome.replace(/\s(\S+)$/, ' <span class="grad">$1</span>');
+  $('hero-tag').textContent = c.tagline;
+  $('hero-prof').textContent = c.profissao;
+  $('sobre-txt').textContent = c.sobre;
+
+  $('stats').innerHTML = c.numeros.map(n => `<div class="stat"><strong>${n.valor}</strong><span>${n.label}</span></div>`).join('');
+  $('serv-grid').innerHTML = c.servicos.map((s, i) =>
+    `<div class="serv"><div class="n">0${i + 1}</div><h3>${s.titulo}</h3><p>${s.desc}</p></div>`).join('');
+
+  const fallback = ['linear-gradient(135deg,#6c2bd9,#ff2d78)','linear-gradient(135deg,#ff2d78,#ffd23f)','linear-gradient(135deg,#2bd9c4,#6c2bd9)'];
+  $('cases-grid').innerHTML = c.cases.map((cs, i) => {
+    const bg = cs.img ? `background-image:url('${cs.img}')` : `background-image:${fallback[i % fallback.length]}`;
+    return `<a class="case" style="${bg}"><div class="info"><span class="tag">${cs.tag}</span><h3>${cs.titulo}</h3></div></a>`;
+  }).join('');
+
+  $('depo-txt').textContent = '“' + c.depoimento + '”';
+  $('depo-autor').textContent = c.depoimentoAutor;
+
+  const wpp = `https://wa.me/${c.whatsapp}?text=` + encodeURIComponent("Olá! Vi seu portfólio e quero falar sobre um projeto.");
+  $('wpp-btn').href = wpp; $('hero-cta').href = wpp; $('nav-cta').href = wpp;
+
+  const s = [];
+  if (c.instagram) s.push(`<a href="${c.instagram}" target="_blank">Instagram</a>`);
+  if (c.tiktok) s.push(`<a href="${c.tiktok}" target="_blank">TikTok</a>`);
+  if (c.email) s.push(`<a href="mailto:${c.email}">E-mail</a>`);
+  $('socials').innerHTML = s.join('');
+})();
+</script>
+
+<!-- CTA "Usar este modelo como base" -->
+<a class="use-template-cta" href="../questionario.html?base=marketing">
+  <span class="ic">✦</span>
+  <span class="txt-full">Gostou? <strong>Use este modelo como base →</strong></span>
+  <span class="txt-short"><strong>Usar este modelo →</strong></span>
+</a>
+</body>
+</html>

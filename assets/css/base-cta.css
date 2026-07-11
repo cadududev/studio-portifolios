@@ -1,0 +1,59 @@
+/* ============================================================
+   CTA "Usar este modelo como base"
+   Barra fixa no rodapé — usada em todos os templates de exemplo.
+   Cores neutras (gradiente do Studio) para funcionar em qualquer tema.
+   ============================================================ */
+.use-template-cta {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  z-index: 999;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 22px 13px 18px;
+  border-radius: 100px;
+  background: linear-gradient(120deg, #c2562f, #e9a04b);
+  color: #2a1710;
+  font-family: "Sora", system-ui, sans-serif;
+  font-size: 0.94rem;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  max-width: calc(100% - 32px);
+}
+.use-template-cta:hover {
+  transform: translateX(-50%) translateY(-3px);
+  box-shadow: 0 20px 50px rgba(194, 86, 47, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+.use-template-cta .ic {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(42, 23, 16, 0.14);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.use-template-cta strong {
+  font-weight: 700;
+}
+
+@media (max-width: 520px) {
+  .use-template-cta {
+    padding: 11px 18px 11px 14px;
+    font-size: 0.85rem;
+    gap: 9px;
+    bottom: 14px;
+  }
+  .use-template-cta .ic { width: 26px; height: 26px; font-size: 0.85rem; }
+  .use-template-cta .txt-short { display: inline; }
+  .use-template-cta .txt-full { display: none; }
+}
+@media (min-width: 521px) {
+  .use-template-cta .txt-short { display: none; }
+  .use-template-cta .txt-full { display: inline; }
+}

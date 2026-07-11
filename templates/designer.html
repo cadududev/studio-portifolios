@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfólio — Designer</title>
+<meta name="description" content="Modelo de portfólio profissional para designers, ilustradores e arquitetos de interiores — tipografia gigante, cores fortes e muita personalidade." />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Archivo+Black&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/css/base-cta.css" />
+
+<!-- ============================================================
+     ✏️  EDITE AQUI  — Modelo: DESIGNER / Criativo / Ilustrador
+     Preencha com os dados do questionário. A página se monta sozinha.
+     ============================================================ -->
+<script>
+const CONFIG = {
+  nome:       "Téo Martins",
+  profissao:  "Designer Gráfico & Diretor de Arte",
+  tagline:    "Crio identidades visuais que ninguém esquece.",
+  iniciais:   "TM",
+
+  // --- Cores (capriche no contraste!) ---
+  corFundo:    "#f3ec18",   // amarelo elétrico
+  corTinta:    "#141414",   // preto (texto e blocos)
+  corAcento:   "#2b4eff",   // azul vibrante (detalhes)
+
+  sobre: "Sou designer há 7 anos, apaixonado por marcas com personalidade. " +
+         "Já criei identidades para startups, cafés, festivais e marcas de moda. " +
+         "Meu trabalho mistura tipografia ousada, cor sem medo e muito conceito por trás.",
+  fotoPerfil: "",  // URL (https://...) ou "" para iniciais
+
+  // --- O que eu faço ---
+  servicos: ["Identidade Visual", "Direção de Arte", "Embalagens", "Social Media", "Ilustração", "Tipografia"],
+
+  // --- Projetos (use links de imagem nos "img" ou deixe "" para bloco colorido) ---
+  projetos: [
+    { titulo: "Rebrand — Café Lume", tag: "Branding · 2024", img: "" },
+    { titulo: "Festival Onda", tag: "Identidade & Cartazes", img: "" },
+    { titulo: "Marca Pó de Café", tag: "Embalagem", img: "" },
+    { titulo: "App Mira", tag: "UI & Ilustração", img: "" }
+  ],
+
+  // --- Contato ---
+  email:     "ola@teomartins.design",
+  whatsapp:  "5511999990000",
+  cidade:    "Belo Horizonte · MG",
+  behance:   "https://behance.net/seu-perfil",
+  instagram: "https://instagram.com/seu-perfil"
+};
+</script>
+<!-- ====================  FIM DA ÁREA DE EDIÇÃO  ==================== -->
+
+<style>
+:root {
+  --bg: #f3ec18; --ink: #141414; --accent: #2b4eff;
+  --display: "Archivo Black", "Archivo", sans-serif;
+  --sans: "DM Sans", system-ui, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 clamp(20px,5vw,56px); }
+a { color: inherit; text-decoration: none; }
+.display { font-family: var(--display); line-height: 0.92; letter-spacing: -0.02em; text-transform: uppercase; }
+
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 22px clamp(20px,5vw,56px); position: sticky; top: 0; z-index: 40; background: var(--bg); border-bottom: 3px solid var(--ink); }
+.logo { font-family: var(--display); font-size: 1.3rem; text-transform: uppercase; }
+.nav-links { display: flex; gap: 26px; font-weight: 600; font-size: 0.92rem; }
+.nav-links a { position: relative; }
+.nav-links a:hover { color: var(--accent); }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; background: var(--ink); color: var(--bg); font-weight: 700; border: 3px solid var(--ink); border-radius: 0; transition: transform .15s, box-shadow .15s; }
+.btn:hover { transform: translate(-3px,-3px); box-shadow: 6px 6px 0 var(--accent); }
+.btn-accent { background: var(--accent); color: #fff; border-color: var(--ink); }
+
+/* Hero */
+.hero { padding: clamp(40px,8vw,90px) 0 clamp(30px,5vw,60px); }
+.hero .prof { font-weight: 700; font-size: clamp(0.95rem,2vw,1.15rem); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 18px; }
+.hero h1 { font-size: clamp(3.5rem,15vw,11rem); margin-bottom: 26px; }
+.hero h1 .stroke { -webkit-text-stroke: 3px var(--ink); color: var(--bg); }
+.hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap; border-top: 3px solid var(--ink); padding-top: 24px; }
+.hero .tag { font-family: var(--display); text-transform: none; font-size: clamp(1.4rem,3vw,2.2rem); max-width: 560px; line-height: 1.05; }
+.hero-bottom .arrow { font-size: 2.4rem; }
+
+/* Marquee */
+.marquee { background: var(--ink); color: var(--bg); padding: 16px 0; overflow: hidden; white-space: nowrap; border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); }
+.marquee .track { display: inline-block; animation: scroll 22s linear infinite; }
+.marquee span { font-family: var(--display); font-size: 1.6rem; text-transform: uppercase; margin: 0 28px; }
+.marquee span:nth-child(even) { color: var(--accent); }
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Projetos */
+.sec { padding: clamp(50px,8vw,100px) 0; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 44px; flex-wrap: wrap; }
+.sec-head h2 { font-family: var(--display); font-size: clamp(2.2rem,6vw,4rem); text-transform: uppercase; }
+.sec-head .count { font-weight: 700; }
+.proj-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 24px; }
+.proj { border: 3px solid var(--ink); background: #fff; overflow: hidden; transition: transform .2s, box-shadow .2s; }
+.proj:hover { transform: translate(-4px,-4px); box-shadow: 8px 8px 0 var(--ink); }
+.proj .thumb { aspect-ratio: 4/3; background-size: cover; background-position: center; display: grid; place-items: center; border-bottom: 3px solid var(--ink); }
+.proj .thumb .ph { font-family: var(--display); font-size: 3rem; color: rgba(0,0,0,0.25); }
+.proj .meta { padding: 20px 22px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.proj .meta h3 { font-family: var(--display); font-size: 1.3rem; text-transform: uppercase; line-height: 1; }
+.proj .meta small { font-weight: 600; white-space: nowrap; }
+.proj .meta .go { font-size: 1.4rem; }
+
+/* Sobre */
+.sobre { background: var(--ink); color: var(--bg); }
+.sobre .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; padding-top: clamp(50px,8vw,100px); padding-bottom: clamp(50px,8vw,100px); }
+.sobre .ph-box { aspect-ratio: 1; background: var(--accent); background-size: cover; background-position: center; border: 3px solid var(--bg); display: grid; place-items: center; }
+.sobre .ph-box .ph { font-family: var(--display); font-size: 5rem; color: var(--bg); }
+.sobre h2 { font-family: var(--display); font-size: clamp(2.2rem,5vw,3.6rem); text-transform: uppercase; margin-bottom: 22px; }
+.sobre h2 em { color: var(--bg); -webkit-text-stroke: 2px var(--bg); color: transparent; font-style: normal; }
+.sobre p { font-size: 1.15rem; color: rgba(255,255,255,0.85); }
+
+/* CTA */
+.cta { padding: clamp(60px,10vw,130px) 0; text-align: center; }
+.cta h2 { font-family: var(--display); font-size: clamp(2.6rem,9vw,7rem); text-transform: uppercase; margin-bottom: 30px; }
+.cta .btn { font-size: 1.1rem; padding: 18px 40px; }
+
+footer { border-top: 3px solid var(--ink); padding: 30px 0; }
+footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-weight: 600; }
+footer .socials { display: flex; gap: 22px; }
+footer .socials a:hover { color: var(--accent); }
+
+@media (max-width: 760px) { .nav-links { display: none; } .sobre .wrap { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#" id="logo-nome"></a>
+  <nav class="nav-links"><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a></nav>
+  <a class="btn" id="nav-cta" href="#contato">Contratar</a>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="prof" id="hero-prof"></p>
+    <h1 class="display" id="hero-nome"></h1>
+    <div class="hero-bottom">
+      <p class="tag" id="hero-tag"></p>
+      <a href="#projetos" class="arrow">↓</a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee"><div class="track" id="marquee-track"></div></div>
+
+<section class="sec" id="projetos">
+  <div class="wrap">
+    <div class="sec-head"><h2>Projetos</h2><span class="count" id="proj-count"></span></div>
+    <div class="proj-grid" id="proj-grid"></div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="wrap">
+    <div class="ph-box" id="sobre-box"><span class="ph" id="sobre-ini"></span></div>
+    <div>
+      <h2>Sobre <em>mim</em></h2>
+      <p id="sobre-txt"></p>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <div class="wrap">
+    <h2>Bora criar<br />algo memorável?</h2>
+    <a class="btn btn-accent" id="wpp-btn" href="#" target="_blank">Vamos conversar →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span id="foot-nome"></span>
+    <span id="foot-cidade"></span>
+    <div class="socials" id="socials"></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const c = CONFIG, $ = (id) => document.getElementById(id);
+  const r = document.documentElement.style;
+  r.setProperty('--bg', c.corFundo); r.setProperty('--ink', c.corTinta); r.setProperty('--accent', c.corAcento);
+  document.title = "Portfólio — " + c.nome;
+
+  $('logo-nome').textContent = c.nome; $('foot-nome').textContent = "© " + c.nome + " " + new Date().getFullYear();
+  $('hero-prof').textContent = c.profissao;
+  $('hero-nome').textContent = c.nome;
+  $('hero-tag').textContent = c.tagline;
+  $('sobre-txt').textContent = c.sobre;
+  $('sobre-ini').textContent = c.iniciais;
+  if (c.fotoPerfil) { $('sobre-box').style.backgroundImage = `url('${c.fotoPerfil}')`; $('sobre-ini').style.display = 'none'; }
+  $('foot-cidade').textContent = c.cidade;
+
+  // Marquee duplicado para loop contínuo
+  const items = c.servicos.map(s => `<span>${s}</span><span>✦</span>`).join('');
+  $('marquee-track').innerHTML = items + items;
+
+  $('proj-count').textContent = "(" + String(c.projetos.length).padStart(2, '0') + ")";
+  const fills = ['#2b4eff', '#ff5d3b', '#21c46a', '#ff3ba7'];
+  $('proj-grid').innerHTML = c.projetos.map((p, i) => {
+    const bg = p.img ? `background-image:url('${p.img}')` : `background-color:${fills[i % fills.length]}`;
+    const ph = p.img ? '' : `<span class="ph">${c.iniciais}</span>`;
+    return `<a class="proj"><div class="thumb" style="${bg}">${ph}</div><div class="meta"><h3>${p.titulo}</h3><small>${p.tag}</small><span class="go">↗</span></div></a>`;
+  }).join('');
+
+  const wpp = `https://wa.me/${c.whatsapp}?text=` + encodeURIComponent("Olá! Vi seu portfólio e quero falar sobre um projeto de design.");
+  $('wpp-btn').href = wpp; $('nav-cta').href = wpp;
+
+  const s = [];
+  if (c.behance) s.push(`<a href="${c.behance}" target="_blank">Behance</a>`);
+  if (c.instagram) s.push(`<a href="${c.instagram}" target="_blank">Instagram</a>`);
+  if (c.email) s.push(`<a href="mailto:${c.email}">E-mail</a>`);
+  $('socials').innerHTML = s.join('');
+})();
+</script>
+
+<!-- CTA "Usar este modelo como base" -->
+<a class="use-template-cta" href="../questionario.html?base=designer">
+  <span class="ic">✦</span>
+  <span class="txt-full">Gostou? <strong>Use este modelo como base →</strong></span>
+  <span class="txt-short"><strong>Usar este modelo →</strong></span>
+</a>
+</body>
+</html>

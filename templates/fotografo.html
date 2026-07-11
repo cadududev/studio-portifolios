@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfólio — Fotógrafo</title>
+<meta name="description" content="Modelo de portfólio profissional para fotógrafos, videomakers e artistas visuais — fundo escuro, galeria em destaque e foco total no seu trabalho." />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/css/base-cta.css" />
+
+<!-- ============================================================
+     ✏️  EDITE AQUI  — Modelo: FOTÓGRAFO / Artista Visual
+     Dica: use links de imagens reais (https://...) nos campos "img".
+     Sem imagens, a galeria mostra blocos cinza só para teste.
+     ============================================================ -->
+<script>
+const CONFIG = {
+  nome:       "Marina Lopes",
+  profissao:  "Fotógrafa",
+  tagline:    "Eu congelo o instante em que a luz e a emoção se encontram.",
+  iniciais:   "ML",
+
+  // --- Cores ---
+  corFundo:    "#0a0a0a",   // preto suave
+  corTexto:    "#f4f1ea",   // branco quente
+  corDestaque: "#c9a36a",   // dourado discreto (links/detalhes)
+
+  sobre: "Sou fotógrafa há 6 anos, especializada em retratos e casamentos. " +
+         "Mais do que fotos bonitas, busco histórias verdadeiras — o olhar, o gesto, " +
+         "o silêncio entre duas pessoas. Trabalho com luz natural sempre que possível.",
+  fotoPerfil: "",  // URL da sua foto (https://...) ou "" para iniciais
+
+  // --- Categorias de trabalho ---
+  categorias: ["Casamentos", "Retratos", "Ensaios", "Eventos"],
+
+  // --- Galeria (cole URLs de imagens; recomendo Unsplash/Drive público) ---
+  galeria: [
+    { img: "", titulo: "Pôr do sol", cat: "Ensaio" },
+    { img: "", titulo: "Cerimônia", cat: "Casamento" },
+    { img: "", titulo: "Olhar", cat: "Retrato" },
+    { img: "", titulo: "Cidade", cat: "Urbano" },
+    { img: "", titulo: "Detalhes", cat: "Casamento" },
+    { img: "", titulo: "Natureza", cat: "Ensaio" }
+  ],
+
+  // --- Serviços/Pacotes ---
+  pacotes: [
+    { titulo: "Ensaio individual", desc: "1h de sessão · 30 fotos tratadas · locação à escolha." },
+    { titulo: "Casamento completo", desc: "Cobertura do making of à festa · álbum digital." },
+    { titulo: "Eventos & festas", desc: "Aniversários, corporativo e celebrações em geral." }
+  ],
+
+  // --- Contato ---
+  email:     "marina@marinalopes.fot.br",
+  whatsapp:  "5511999990000",
+  cidade:    "Rio de Janeiro · RJ",
+  instagram: "https://instagram.com/seu-perfil",
+  behance:   ""   // opcional
+};
+</script>
+<!-- ====================  FIM DA ÁREA DE EDIÇÃO  ==================== -->
+
+<style>
+:root {
+  --bg: #0a0a0a; --txt: #f4f1ea; --gold: #c9a36a; --dim: #8c8c86;
+  --serif: "Cormorant", Georgia, serif;
+  --sans: "Jost", system-ui, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--txt); line-height: 1.7; font-weight: 300; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 clamp(20px,5vw,56px); }
+a { color: inherit; text-decoration: none; }
+h1,h2,h3 { font-family: var(--serif); font-weight: 400; line-height: 1.1; }
+
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 26px clamp(20px,5vw,56px); position: fixed; top: 0; left: 0; right: 0; z-index: 40; mix-blend-mode: difference; }
+.logo { font-family: var(--serif); font-size: 1.5rem; letter-spacing: 0.06em; color: #fff; }
+.nav-links { display: flex; gap: 32px; font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase; color: #fff; }
+.nav-links a { transition: opacity .2s; }
+.nav-links a:hover { opacity: 0.6; }
+
+/* Hero */
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 24px 60px; position: relative; }
+.hero .prof { letter-spacing: 0.4em; text-transform: uppercase; font-size: 0.8rem; color: var(--gold); margin-bottom: 28px; }
+.hero h1 { font-size: clamp(3.5rem, 12vw, 9rem); font-weight: 300; letter-spacing: 0.02em; margin-bottom: 26px; }
+.hero .tag { font-family: var(--serif); font-style: italic; font-size: clamp(1.3rem, 3vw, 2rem); color: var(--dim); max-width: 620px; }
+.hero .scroll { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dim); }
+.hero .scroll::after { content: ""; display: block; width: 1px; height: 40px; background: var(--gold); margin: 12px auto 0; }
+
+/* Categorias bar */
+.cats { display: flex; flex-wrap: wrap; gap: 8px 28px; justify-content: center; padding: 40px 24px; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); }
+.cats span { font-family: var(--serif); font-size: 1.4rem; font-style: italic; color: var(--dim); }
+.cats span::before { content: "·"; color: var(--gold); margin-right: 28px; }
+.cats span:first-child::before { display: none; }
+
+/* Galeria */
+.gallery { padding: clamp(60px,9vw,120px) 0; }
+.sec-label { text-align: center; margin-bottom: 56px; }
+.sec-label .k { letter-spacing: 0.35em; text-transform: uppercase; font-size: 0.75rem; color: var(--gold); }
+.sec-label h2 { font-size: clamp(2.4rem,5vw,3.6rem); margin-top: 12px; }
+.masonry { columns: 3 280px; column-gap: 18px; }
+.shot { break-inside: avoid; margin-bottom: 18px; position: relative; overflow: hidden; cursor: pointer; background: #1c1c1c; }
+.shot img { width: 100%; display: block; transition: transform .6s ease, filter .4s; filter: grayscale(0.15); }
+.shot:hover img { transform: scale(1.05); filter: grayscale(0); }
+.shot .ph { aspect-ratio: 3/4; display: grid; place-items: center; color: #3a3a3a; font-family: var(--serif); font-size: 2rem; }
+.shot .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); opacity: 0; transition: opacity .3s; }
+.shot:hover .cap { opacity: 1; }
+.shot .cap small { letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.68rem; color: var(--gold); }
+.shot .cap h3 { font-size: 1.5rem; }
+
+/* Sobre */
+.sobre { padding: clamp(60px,9vw,120px) 0; }
+.sobre .wrap { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 60px; align-items: center; }
+.sobre .ph-box { aspect-ratio: 3/4; background: #1c1c1c; background-size: cover; background-position: center; display: grid; place-items: center; }
+.sobre .ph-box .ph { font-family: var(--serif); font-size: 4rem; color: #3a3a3a; }
+.sobre h2 { font-size: clamp(2.2rem,4.5vw,3.4rem); margin-bottom: 22px; }
+.sobre p { color: var(--dim); font-size: 1.15rem; }
+
+/* Pacotes */
+.pacotes { padding: clamp(60px,9vw,120px) 0; }
+.pac-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 1px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); }
+.pac { background: var(--bg); padding: 44px 34px; transition: background .3s; }
+.pac:hover { background: #141414; }
+.pac h3 { font-size: 1.7rem; margin-bottom: 12px; }
+.pac p { color: var(--dim); }
+
+/* CTA */
+.cta { padding: clamp(70px,10vw,140px) 24px; text-align: center; }
+.cta h2 { font-size: clamp(2.5rem,6vw,4.5rem); margin-bottom: 24px; }
+.cta .btn { display: inline-block; font-family: var(--sans); letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.82rem; border: 1px solid var(--gold); color: var(--gold); padding: 18px 44px; transition: background .3s, color .3s; }
+.cta .btn:hover { background: var(--gold); color: var(--bg); }
+.cta .mail { display: block; margin-top: 28px; font-family: var(--serif); font-style: italic; font-size: 1.4rem; color: var(--dim); }
+
+footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 40px 0; }
+footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 0.85rem; color: var(--dim); letter-spacing: 0.05em; }
+footer .socials { display: flex; gap: 24px; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.72rem; }
+footer .socials a:hover { color: var(--gold); }
+
+@media (max-width: 760px) { .nav-links { display: none; } .sobre .wrap { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#" id="logo-nome"></a>
+  <nav class="nav-links"><a href="#galeria">Galeria</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a></nav>
+</header>
+
+<section class="hero">
+  <p class="prof" id="hero-prof"></p>
+  <h1 id="hero-nome"></h1>
+  <p class="tag" id="hero-tag"></p>
+  <span class="scroll">Role para ver</span>
+</section>
+
+<div class="cats" id="cats"></div>
+
+<section class="gallery" id="galeria">
+  <div class="wrap">
+    <div class="sec-label"><span class="k">Trabalhos selecionados</span><h2>Portfólio</h2></div>
+    <div class="masonry" id="masonry"></div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="wrap">
+    <div class="ph-box" id="sobre-box"><span class="ph" id="sobre-ini"></span></div>
+    <div>
+      <div class="sec-label" style="text-align:left;margin-bottom:24px"><span class="k">Quem está por trás da lente</span></div>
+      <h2>Sobre</h2>
+      <p id="sobre-txt"></p>
+    </div>
+  </div>
+</section>
+
+<section class="pacotes">
+  <div class="wrap">
+    <div class="sec-label"><span class="k">Como trabalho</span><h2>Pacotes</h2></div>
+    <div class="pac-grid" id="pac-grid"></div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <h2>Vamos criar<br />algo lindo juntos?</h2>
+  <a class="btn" id="wpp-btn" href="#" target="_blank">Agendar ensaio</a>
+  <a class="mail" id="mail-link" href="#"></a>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span id="foot-nome"></span>
+    <span id="foot-cidade"></span>
+    <div class="socials" id="socials"></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const c = CONFIG, $ = (id) => document.getElementById(id);
+  const r = document.documentElement.style;
+  r.setProperty('--bg', c.corFundo); r.setProperty('--txt', c.corTexto); r.setProperty('--gold', c.corDestaque);
+  document.title = "Portfólio — " + c.nome;
+
+  $('logo-nome').textContent = c.nome; $('foot-nome').textContent = "© " + c.nome;
+  $('hero-prof').textContent = c.profissao;
+  $('hero-nome').textContent = c.nome;
+  $('hero-tag').textContent = c.tagline;
+  $('sobre-txt').textContent = c.sobre;
+  $('sobre-ini').textContent = c.iniciais;
+  if (c.fotoPerfil) { $('sobre-box').style.backgroundImage = `url('${c.fotoPerfil}')`; $('sobre-ini').style.display = 'none'; }
+  $('foot-cidade').textContent = c.cidade;
+
+  $('cats').innerHTML = c.categorias.map(cat => `<span>${cat}</span>`).join('');
+  $('masonry').innerHTML = c.galeria.map(g => {
+    const inner = g.img
+      ? `<img src="${g.img}" alt="${g.titulo}" loading="lazy" />`
+      : `<div class="ph">◯</div>`;
+    return `<figure class="shot">${inner}<div class="cap"><small>${g.cat}</small><h3>${g.titulo}</h3></div></figure>`;
+  }).join('');
+  $('pac-grid').innerHTML = c.pacotes.map(p => `<div class="pac"><h3>${p.titulo}</h3><p>${p.desc}</p></div>`).join('');
+
+  const wpp = `https://wa.me/${c.whatsapp}?text=` + encodeURIComponent("Olá! Vim pelo seu portfólio e gostaria de agendar um ensaio.");
+  $('wpp-btn').href = wpp;
+  $('mail-link').href = "mailto:" + c.email; $('mail-link').textContent = c.email;
+
+  const s = [];
+  if (c.instagram) s.push(`<a href="${c.instagram}" target="_blank">Instagram</a>`);
+  if (c.behance) s.push(`<a href="${c.behance}" target="_blank">Behance</a>`);
+  $('socials').innerHTML = s.join('');
+})();
+</script>
+
+<!-- CTA "Usar este modelo como base" -->
+<a class="use-template-cta" href="../questionario.html?base=fotografo">
+  <span class="ic">✦</span>
+  <span class="txt-full">Gostou? <strong>Use este modelo como base →</strong></span>
+  <span class="txt-short"><strong>Usar este modelo →</strong></span>
+</a>
+</body>
+</html>
