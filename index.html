@@ -7,8 +7,12 @@
   <meta name="description" content="5 modelos criativos de portfólio para advogados, nutricionistas, marketing, fotógrafos e designers. Responda o questionário e descubra o seu." />
   <meta name="author" content="Cadu — Desenvolvedor" />
   <meta name="theme-color" content="#c2562f" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <link rel="canonical" href="https://studio-portfolios.carlos-devads.workers.dev/" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Google Search Console: substitua CONTENT pelo código fornecido no console -->
+  <!-- <meta name="google-site-verification" content="CONTENT" /> -->
 
   <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
   <meta property="og:type" content="website" />
@@ -31,6 +35,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/showcase.css" />
+
+  <!-- Structured data (schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://studio-portfolios.carlos-devads.workers.dev/#website",
+        "url": "https://studio-portfolios.carlos-devads.workers.dev/",
+        "name": "Studio Portfólios",
+        "description": "5 modelos criativos de portfólio para advogados, nutricionistas, marketing, fotógrafos e designers.",
+        "inLanguage": "pt-BR",
+        "publisher": { "@id": "https://studio-portfolios.carlos-devads.workers.dev/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://studio-portfolios.carlos-devads.workers.dev/#person",
+        "name": "Cadu",
+        "jobTitle": "Desenvolvedor Web",
+        "url": "https://studio-portfolios.carlos-devads.workers.dev/",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "telephone": "+55-11-91329-7171",
+          "availableLanguage": ["Portuguese"]
+        }
+      },
+      {
+        "@type": "ItemList",
+        "name": "Modelos de portfólio",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Advogado — Sóbrio & Confiável",  "url": "https://studio-portfolios.carlos-devads.workers.dev/templates/advogado.html" },
+          { "@type": "ListItem", "position": 2, "name": "Nutricionista — Fresco & Acolhedor", "url": "https://studio-portfolios.carlos-devads.workers.dev/templates/nutricionista.html" },
+          { "@type": "ListItem", "position": 3, "name": "Marketing — Vibrante & Ousado", "url": "https://studio-portfolios.carlos-devads.workers.dev/templates/marketing.html" },
+          { "@type": "ListItem", "position": 4, "name": "Fotógrafo — Minimal & Galeria", "url": "https://studio-portfolios.carlos-devads.workers.dev/templates/fotografo.html" },
+          { "@type": "ListItem", "position": 5, "name": "Designer — Criativo & Bold",   "url": "https://studio-portfolios.carlos-devads.workers.dev/templates/designer.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <!-- Aplica o tema salvo antes da renderização (evita "piscar") -->
   <script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
 </head>
