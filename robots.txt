@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /questionario.html
+
+Sitemap: https://studio-portfolios.carlos-devads.workers.dev/sitemap.xml
